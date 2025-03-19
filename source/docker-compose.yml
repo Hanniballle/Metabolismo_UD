@@ -9,4 +9,5 @@ services:
     ports:
       - '${APP_PORT}:${APP_PORT}'
     volumes:
-      - .:/metabolism-apps
+      - .:/metabolism-app
+      - /metabolism-app/node_modules
