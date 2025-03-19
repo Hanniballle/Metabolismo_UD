@@ -1,0 +1,12 @@
+version: '3.9'
+services:
+  metabolism-app:
+    build: 
+      context: .
+      dockerfile: dockerfile
+    command: "npm run dev"
+    container_name: metabolism-app
+    ports:
+      - '${APP_PORT}:${APP_PORT}'
+    volumes:
+      - .:/metabolism-apps
