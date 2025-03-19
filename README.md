@@ -12,4 +12,4 @@ https://www.canva.com/design/DAGhpvyKAgQ/iodl9oMJkFI34YpunByVCg/edit
 - Fotografía 7 usuario_© Zulma Correa Bernal https://colombia.inaturalist.org/photos/477094368
 - Fotografia 8 Quintus_Horatius_Flaccus_Histaria del origen de el hongo https://es.wikipedia.org/wiki/Horacio#/media/Archivo:Quintus_Horatius_Flaccus.jpg
 - Fotografía 9 Plinyelder_Historia del reino Fungi https://es.wikipedia.org/wiki/Plinio_el_Viejo#/media/Archivo:Plinyelder.jpg
-- 
+- Fotografía 10 The_Reverend_Miles_Joseph_Berkeley._Photograph_by_Maull_&_Po_Wellcome_V0026032_Micologia https://es.wikipedia.org/wiki/Miles_Joseph_Berkeley#/media/Archivo:The_Reverend_Miles_Joseph_Berkeley._Photograph_by_Maull_&_Po_Wellcome_V0026032.jpg
