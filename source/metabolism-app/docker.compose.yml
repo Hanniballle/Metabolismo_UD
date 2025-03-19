@@ -1,0 +1,13 @@
+version: '3.9'
+services:
+  nextjs:
+    container_name: metabolism-dev
+    build: 
+      context: .
+      dockerfile: dockerfile
+    command: "npm run dev"
+    ports:
+      - 3000:3000
+    volumes:
+      - .:/app  # Mount local files into the container
+      - /app/node_modules
