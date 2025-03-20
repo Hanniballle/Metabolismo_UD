@@ -1,5 +1,5 @@
 # Metabolismo_UD
-Unidad didáctica del metabolismo con enfoque educativo
+Unidad didáctica del metabolismo con enfoque educativo para la IPN
 ## Plantilla
 https://www.canva.com/design/DAGhpvyKAgQ/iodl9oMJkFI34YpunByVCg/edit
 ## Bibliografía
