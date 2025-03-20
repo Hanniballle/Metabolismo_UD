@@ -1,11 +1,12 @@
 version: '3.9'
 services:
-  metabolism-app:
+  metabolism-nextjs:
     build: 
       context: .
       dockerfile: dockerfile
     command: "npm run dev"
     container_name: metabolism-app
+    image: docker-next-js
     ports:
       - '${APP_PORT}:${APP_PORT}'
     volumes:
