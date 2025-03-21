@@ -1,7 +1,10 @@
+"use client";
 import { useState } from "react";
-import { myFont} from "../utils/fonts";
+import { myFont, geistMono} from "../utils/fonts";
 import { Button, TextField, Container, Typography, Box } from "@mui/material";
+import styles from "../styles/page.module.css";
 import type { NextPage } from "next";
+import { text } from "stream/consumers";
 
 const Login: NextPage = () => {
 
@@ -17,7 +20,7 @@ const Login: NextPage = () => {
           Metabolismo
         </Typography>
 
-        <Typography variant="h6" sx={{ mt: 2 }}>
+        <Typography variant="h7" className={geistMono.className} sx={{ mt: 2, fontFamily: "var(--font-geist-mono)", lineHeight: "24px"}}>
           Selecciona tu tipo de usuario
         </Typography>
 
@@ -36,18 +39,23 @@ const Login: NextPage = () => {
           <Button 
             type="submit"
             variant="contained"
-            color="primary" 
             fullWidth
             disabled={loading}
-            sx={{ mt: 2, backgroundColor: "black", color: "white" }}>
+            className={geistMono.className}
+            sx={{ 
+              mt: 2,
+              backgroundColor: "black",
+              color: "white",
+              fontFamily: "var(--font-geist-mono)",
+              textTransform: "none"}}>
             {"Iniciar sesión"}
           </Button>
-        </form>
 
-        
+        </form> 
       </Box>
     </Container>
   );
 };
 
 export default Login;
+
