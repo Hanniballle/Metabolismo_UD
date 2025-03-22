@@ -1,3 +1,4 @@
+'use client';
 import localFont from "next/font/local";
 import { Geist, Geist_Mono } from "next/font/google";
 
