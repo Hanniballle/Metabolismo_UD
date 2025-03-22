@@ -19,3 +19,6 @@ https://www.canva.com/design/DAGhpvyKAgQ/iodl9oMJkFI34YpunByVCg/edit
 - Fotografia 14  Usuario_© Scott Walmsley https://colombia.inaturalist.org/photos/473516138  
 - Fotografia 15 Usuario  © Alex Kenins https://colombia.inaturalist.org/photos/474706649  
 - Fotografia 16 usuario  © wojtest https://colombia.inaturalist.org/photos/340938685  
+- CEPERO, M., RESTREPO, S., FRANCO, A., CÁRDENAS, M., & VARGAS, N. (2012). Biología de hongos. Ediciones uniandes. https://www.academia.edu/44230266/Biologia_De_Hongos_Cepero_de_García_et_al_ 
+- Deacon, J. (2006). Fungal Biology (4ª ed.). BLACKWELL PUBLISHING. https://yeastwonderfulworld.wordpress.com/wp-content/uploads/2016/10/fungal-biology.pdf (Obra original publicada en 1980) 
+- Ruiz, J. (2008). Viaje al asombroso mundo de los hongos. FONDO DE CULTURA ECONOMICA.
