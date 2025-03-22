@@ -1,32 +1,23 @@
 "use client";
-import { useState } from "react";
-import { myFont, geistMono} from "../utils/fonts";
+import { useState, ChangeEvent } from "react";
 import { Button, TextField, Container, Typography, Box } from "@mui/material";
-import styles from "../styles/page.module.css";
 import type { NextPage } from "next";
-import { text } from "stream/consumers";
 
 const Login: NextPage = () => {
 
-  const [loading, setLoading] = useState(false);
   const [studentName, setStudentName] = useState("");
 
   return (
-    
     <Container maxWidth="xs">
       <Box display="flex" flexDirection="column" alignItems="center" mt={8}>
-
-        <Typography variant="h1" className={myFont.variable} sx={{ fontFamily: "var(--font-dancing-script)" }}>
+        <Typography variant="h1" sx={{ fontFamily: "var(--font-dancing-script)" }}>
           Metabolismo
         </Typography>
-
-        <Typography variant="h7" className={geistMono.className} sx={{ mt: 2, fontFamily: "var(--font-geist-mono)", lineHeight: "24px"}}>
+        <Typography variant="body1" sx={{ mt: 2, fontFamily: "var(--font-geist-mono)", lineHeight: "24px"}}>
           Selecciona tu tipo de usuario
         </Typography>
-
-        <form onSubmit={(e) => {}}>
-
-        <TextField
+        <form>
+          <TextField
             label="Nombre Estudiante"
             type="Nombre Estudiante"
             fullWidth
@@ -34,14 +25,13 @@ const Login: NextPage = () => {
             margin="normal"
             variant="outlined"
             required
+            value={studentName}
+            onChange={(e: ChangeEvent<HTMLInputElement>) => setStudentName(e.target.value)}
           />
-
           <Button 
             type="submit"
             variant="contained"
             fullWidth
-            disabled={loading}
-            className={geistMono.className}
             sx={{ 
               mt: 2,
               backgroundColor: "black",
@@ -50,7 +40,6 @@ const Login: NextPage = () => {
               textTransform: "none"}}>
             {"Iniciar sesión"}
           </Button>
-
         </form> 
       </Box>
     </Container>

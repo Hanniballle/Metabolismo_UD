@@ -1,26 +1,9 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-import localFont from 'next/font/local'
 import "../styles/globals.css";
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v15-appRouter';
 import { ThemeProvider } from "@mui/material/styles";
 import theme from "../utils/theme";
-
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
-const myFont = localFont({
-  src: '../../public/fonts/DancingScript-Variable.ttf',
-  variable: "--font-dancing-script"
-});
+import { myFont, geistSans, geistMono } from "@/utils/fonts";
 
 export const metadata: Metadata = {
   title: "Unidad Didáctica",
@@ -31,7 +14,7 @@ export default function RootLayout(props : {children: React.ReactNode}) {
   const { children } = props;
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} ${myFont.className}`}>
+      <body className={`${geistSans.variable} ${geistMono.variable} ${myFont.variable}`}>
         <AppRouterCacheProvider>
           <ThemeProvider theme={theme}>
             {children}
