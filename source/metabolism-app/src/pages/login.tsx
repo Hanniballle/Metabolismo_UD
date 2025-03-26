@@ -14,7 +14,7 @@ const Login: NextPage = () => {
           Metabolismo
         </Typography>
         <Typography variant="body1" sx={{ mt: 2, fontFamily: "var(--font-geist-mono)", lineHeight: "24px"}}>
-          Selecciona tu tipo de usuario
+          Colaca tu nombre
         </Typography>
         <form>
           <TextField
