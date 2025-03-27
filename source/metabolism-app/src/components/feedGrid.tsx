@@ -1,5 +1,7 @@
 import React from "react";
 import { Grid, Card, CardMedia, CardContent, Typography } from "@mui/material";
+import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
+import FavoriteOutlinedIcon from '@mui/icons-material/FavoriteOutlined';
 
 const feedData = [
     {
@@ -7,36 +9,38 @@ const feedData = [
       image: "https://source.unsplash.com/400x300/?sunset",
       color: "#ff9800",
       height: 250,
+      liked: true,
     },
     {
-      text: "Mountain View",
-      image: "https://source.unsplash.com/400x300/?mountain",
+      text: "Biomoléculas",
+      image: "/start/Biomoleculas.jpg",
       color: "#4caf50",
-      height: 320,
+      height: 500,
     },
     {
-      text: "City Lights",
-      image: "https://source.unsplash.com/400x300/?city",
+      text: "Anabolismo",
+      image: "/start/Anabolismo.jpg",
       color: "#3f51b5",
-      height: 280,
+      height: 660,
+      liked: false,
     },
     {
-      text: "Ocean Waves",
-      image: "https://source.unsplash.com/400x300/?ocean",
+      text: "Catabolismo",
+      image: "/start/Catabolismo.jpg",
       color: "#2196f3",
-      height: 330,
+      height: 500,
     },
     {
-      text: "Desert Dunes",
-      image: "https://source.unsplash.com/400x300/?desert",
+      text: "Homeostasis",
+      image: "/start/Homeostasis.jpg",
       color: "#ff5722",
-      height: 260,
+      height: 660,
     },
     {
-      text: "Green Forest",
-      image: "https://source.unsplash.com/400x300/?forest",
+      text: "Termodinámica de los organismos vivos",
+      image: "/start/Termodinámica de los organismos vivos.jpg",
       color: "#2e7d32",
-      height: 300,
+      height: 500,
     },
     {
       text: "Snowy Peaks",
@@ -51,8 +55,8 @@ const feedData = [
       height: 270,
     },
     {
-      text: "Urban Jungle",
-      image: "https://source.unsplash.com/400x300/?urban",
+      text: "Tasa metabólica",
+      image: "/start/Tasa metabólica.jpg",
       color: "#9e9e9e",
       height: 290,
     },

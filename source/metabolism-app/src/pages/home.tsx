@@ -30,45 +30,6 @@ const HomePage: NextPage = () => {
     { text: "Book", icon: <BookOutlinedIcon /> },
   ];
 
-  const feedData = [
-    {
-      text: "Beautiful Sunset",
-      image: "https://source.unsplash.com/400x300/?sunset",
-      color: "#ff9800",
-      height: 300,
-    },
-    {
-      text: "Mountain View",
-      image: "https://source.unsplash.com/400x300/?mountain",
-      color: "#4caf50",
-      height: 300,
-    },
-    {
-      text: "City Lights",
-      image: "https://source.unsplash.com/400x300/?city",
-      color: "#3f51b5",
-      height: 300,
-    },
-    {
-      text: "Ocean Waves",
-      image: "https://source.unsplash.com/400x300/?ocean",
-      color: "#2196f3",
-      height: 300,
-    },
-    {
-      text: "Desert Dunes",
-      image: "https://source.unsplash.com/400x300/?desert",
-      color: "#ff5722",
-      height: 300,
-    },
-    {
-      text: "Green Forest",
-      image: "https://source.unsplash.com/400x300/?forest",
-      color: "#2e7d32",
-      height: 300,
-    },
-  ];
-
   return (
     <Box sx={{ display: "flex", height: "100vh", backgroundColor: "#f2f2f2" }}> 
       <Box
