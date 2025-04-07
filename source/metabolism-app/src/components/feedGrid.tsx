@@ -5,10 +5,10 @@ import FavoriteOutlinedIcon from '@mui/icons-material/FavoriteOutlined';
 
 const feedData = [
     {
-      text: "Historiaaa",
+      text: "Historia",
       image: "/start/Historia.jpg",
       color: "#ff9800",
-      height: 250,
+      height: 500,
       liked: true,
     },
     {
@@ -21,7 +21,7 @@ const feedData = [
       text: "Anabolismo",
       image: "/start/Anabolismo.jpg",
       color: "#3f51b5",
-      height: 660,
+      height: 500,
       liked: false,
     },
     {
@@ -34,7 +34,7 @@ const feedData = [
       text: "Homeostasis",
       image: "/start/Homeostasis.jpg",
       color: "#ff5722",
-      height: 660,
+      height: 500,
     },
     {
       text: "Termodinámica de los organismos vivos",
@@ -43,28 +43,28 @@ const feedData = [
       height: 500,
     },
     {
-      text: "Snowy Peaks",
+      text: "Metabolismo",
       image: "https://source.unsplash.com/400x300/?snow",
       color: "#607d8b",
-      height: 310,
+      height: 500,
     },
     {
       text: "Golden Fields",
       image: "https://source.unsplash.com/400x300/?field",
       color: "#fbc02d",
-      height: 270,
+      height: 500,
     },
     {
       text: "Tasa metabólica",
       image: "/start/Tasa metabólica.jpg",
       color: "#9e9e9e",
-      height: 290,
+      height: 500,
     },
     {
       text: "Deep Canyon",
       image: "https://source.unsplash.com/400x300/?canyon",
       color: "#795548",
-      height: 340,
+      height: 500,
     },
   ];
 
