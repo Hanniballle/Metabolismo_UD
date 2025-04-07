@@ -5,8 +5,8 @@ import FavoriteOutlinedIcon from '@mui/icons-material/FavoriteOutlined';
 
 const feedData = [
     {
-      text: "Beautiful Sunset",
-      image: "https://source.unsplash.com/400x300/?sunset",
+      text: "Historiaaa",
+      image: "/start/Historia.jpg",
       color: "#ff9800",
       height: 250,
       liked: true,
