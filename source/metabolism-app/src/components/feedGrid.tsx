@@ -4,6 +4,24 @@ import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlin
 import FavoriteOutlinedIcon from '@mui/icons-material/FavoriteOutlined';
 
 const feedData = [
+     {
+      text: "Guía de inicio",
+      image: "",
+      color: "#fbc02d",
+      height: 500,
+    },
+    {
+      text: "Carta al maestro",
+      image: "https://www.pexels.com/es-es/foto/profesor-negro-respondiendo-preguntas-del-alumno-5905923/",
+      color: "#fbc02d",
+      height: 500,
+    },
+    {
+      text: "Carta al estudiante",
+      image: "https://source.unsplash.com/400x300/?canyon",
+      color: "#795548",
+      height: 500,
+    },
     {
       text: "Historia",
       image: "/start/Historia.jpg",
@@ -15,6 +33,24 @@ const feedData = [
       text: "Biomoléculas",
       image: "/start/Biomoleculas.jpg",
       color: "#4caf50",
+      height: 500,
+    },
+    {
+      text: "Bioenergética",
+      image: "",
+      color: "#fbc02d",
+      height: 500,
+    },
+    {
+      text: "Termodinámica de los organismos vivos",
+      image: "/start/Termodinámica de los organismos vivos.jpg",
+      color: "#2e7d32",
+      height: 500,
+    },
+    {
+      text: "Metabolismo",
+      image: "https://source.unsplash.com/400x300/?snow",
+      color: "#607d8b",
       height: 500,
     },
     {
@@ -31,48 +67,25 @@ const feedData = [
       height: 500,
     },
     {
-      text: "Homeostasis",
-      image: "/start/Homeostasis.jpg",
-      color: "#ff5722",
-      height: 500,
-    },
-    {
-      text: "Termodinámica de los organismos vivos",
-      image: "/start/Termodinámica de los organismos vivos.jpg",
-      color: "#2e7d32",
-      height: 500,
-    },
-    {
-      text: "Metabolismo",
-      image: "https://source.unsplash.com/400x300/?snow",
-      color: "#607d8b",
-      height: 500,
-    },
-    {
-      text: "Golden Fields",
-      image: "https://source.unsplash.com/400x300/?field",
-      color: "#fbc02d",
-      height: 500,
-    },
-    {
       text: "Tasa metabólica",
       image: "/start/Tasa metabólica.jpg",
       color: "#9e9e9e",
       height: 500,
     },
     {
-      text: "Deep Canyon",
-      image: "https://source.unsplash.com/400x300/?canyon",
-      color: "#795548",
+      text: "Homeostasis",
+      image: "/start/Homeostasis.jpg",
+      color: "#ff5722",
       height: 500,
     },
+    
   ];
 
   const FeedGrid = () => {
     return (
-      <Grid container spacing={4}>
+      <Grid container spacing={5}>
         {feedData.map((item, index) => (
-          <Grid item size={{ xs: 12, sm: 12, md: 4 }} key={index}>
+          <Grid item size={{ xs: 12, sm: 12, md: 5 }} key={index}>
             <Card>
               <CardMedia
                 component="img"

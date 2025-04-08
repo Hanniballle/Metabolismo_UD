@@ -12,6 +12,8 @@ import type { NextPage } from "next";
 import UpnLogo from "@/components/upnLogo";
 import FeedGrid from "@/components/feedGrid";
 import { useTheme } from "@mui/material/styles";
+import { Tooltip } from "@mui/material";
+
 
 const HomePage: NextPage = () => {
 
@@ -24,10 +26,10 @@ const HomePage: NextPage = () => {
 
   const sideBarItems = [
     { text: "Inicio", icon: <HomeOutlinedIcon /> },
-    { text: "Buscar", icon: <YardOutlinedIcon /> },
-    { text: "Reinos", icon: <SearchOutlinedIcon /> },
+    { text: "Reinos", icon: <YardOutlinedIcon /> },
+    { text: "Buscar", icon: <SearchOutlinedIcon /> },
     { text: "Juegos", icon: <VideogameAssetOutlinedIcon /> },
-    { text: "Mas", icon: <BookOutlinedIcon /> },
+    { text: "Más", icon: <BookOutlinedIcon /> },
   ];
 
   return (
@@ -47,29 +49,25 @@ const HomePage: NextPage = () => {
           justifyContent: "space-between"
         }}
       >
-        <Box sx={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "space-between" }}>
+        <Box sx={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}>
           <Box sx={{ width: 90, alignItems: "center", justifyContent: "center", display: "flex" }}>
-            <Typography variant="h3" sx={{ fontFamily: "var(--font-dancing-script)", color: "black" }}>
+            <Typography variant="h4" sx={{  fontFamily: "var(--font-dancing-script)", color: "#2a7fff" }}>
               M
             </Typography>
-          </Box>
-  
+          </Box>  
           <Box>
             <List>
               {sideBarItems.map((item, index) => (
                 <ListItem button key={index} sx={{ flexDirection: "column", display: "flex", justifyContent: "center", paddingY: 2 }}>
-                  <ListItemIcon sx={{ color: '#01609C', minWidth: "auto" }}>
+                  <Tooltip title={item.text} placement="right" enterDelay={100} leaveDelay={100} TransitionProps={{ timeout: 300 }} componentsProps={{ tooltip: { sx: { bgcolor: "#2a7fff", color: "#ffffff", fontSize: "0.8rem", borderRadius: 1, boxShadow: 3, px: 1.5, py: 0.5,},},}} > 
+                  <ListItemIcon sx={{ color: '#000000', minWidth: "auto" }}>
                     {item.icon}
                   </ListItemIcon>
-                  <ListItemText primary={item.text} sx={{ color: '#01609C', textAlign: "center", marginTop: 1, fontFamily: "var(--font-geist-mono)" }} />
+                  </Tooltip>
                 </ListItem>
               ))}
             </List>
           </Box>
-        </Box>
-  
-        <Box sx={{ width: 90, alignItems: "center", justifyContent: "center", display: "flex" }}>
-          <UpnLogo />
         </Box>
       </Box>
 
@@ -78,16 +76,15 @@ const HomePage: NextPage = () => {
           sx={{
             position: "fixed",
             top: 0,
-            left: "70px",
+            left: "60px",
             right: 0,
-            height: "70px",
+            height: "65px",
             bgcolor: "white",
             zIndex: 1000,
             display: "flex",
             flexDirection: "column",
             justifyContent: "center",
-            paddingLeft: 3,
-            boxShadow: 1
+            paddingLeft: 4,
           }}
         >
           <Typography variant="h4" sx={{ fontFamily: "var(--font-dancing-script)" }}>
