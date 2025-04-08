@@ -1,9 +1,16 @@
-import React from "react";
-import { Grid, Card, CardMedia, CardContent, Typography } from "@mui/material";
+import React, { use, useEffect } from "react";
+import { Box, Grid, Card, CardMedia, CardContent, Typography, IconButton } from "@mui/material";
 import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
 import FavoriteOutlinedIcon from '@mui/icons-material/FavoriteOutlined';
 
-const feedData = [
+interface FeedItem {
+  text: string;
+  image: string;
+  color: string;
+  height: number;
+}
+
+const feedData: FeedItem[] = [
      {
       text: "Guía de inicio",
       image: "",
@@ -12,7 +19,7 @@ const feedData = [
     },
     {
       text: "Carta al maestro",
-      image: "https://www.pexels.com/es-es/foto/profesor-negro-respondiendo-preguntas-del-alumno-5905923/",
+      image: "/start/professor_letter.jpg",
       color: "#fbc02d",
       height: 500,
     },
@@ -81,11 +88,37 @@ const feedData = [
     
   ];
 
-  const FeedGrid = () => {
+  interface FeedGridProps {
+    studentName: string;
+  }
+
+  const FeedGrid: React.FC<FeedGridProps> = ({studentName}) => {
+    const [likedItems, setLikedItems] = React.useState<{ [key: string]: boolean }>({});
+    const storageKey = `likedItems_${studentName}`;
+
+    useEffect(() => {
+      console.log("Student name: ", studentName, storageKey);
+    },[]);
+
+    useEffect(() => {
+      const storedLikes = JSON.parse(localStorage.getItem(storageKey) || "{}");
+      setLikedItems(storedLikes);
+    }, [storageKey]);
+
+    const toggleLike = (text: string) => {
+      const updatedLikes = {
+        ...likedItems,
+        [text]: !likedItems[text],
+      };
+      setLikedItems(updatedLikes);
+      localStorage.setItem(storageKey, JSON.stringify(updatedLikes));
+    };
+  
+
     return (
-      <Grid container spacing={5}>
+      <Grid container spacing={4}>
         {feedData.map((item, index) => (
-          <Grid item size={{ xs: 12, sm: 12, md: 5 }} key={index}>
+          <Grid size={{ xs: 12, sm: 12, md: 3 }} key={index}>
             <Card>
               <CardMedia
                 component="img"
@@ -94,9 +127,18 @@ const feedData = [
                 alt={item.text}
               />
               <CardContent>
-                <Typography variant="h6" component="div" color="textPrimary">
-                  {item.text}
-                </Typography>
+                <Box>
+                  <Typography variant="h6" component="div" color="textPrimary">
+                    {item.text}
+                  </Typography>
+                  <IconButton onClick={() => toggleLike(item.text)}>
+                  {likedItems[item.text] ? (
+                    <FavoriteOutlinedIcon color="error" />
+                  ) : (
+                    <FavoriteBorderOutlinedIcon />
+                  )}
+                </IconButton>
+                </Box>
               </CardContent>
             </Card>
           </Grid>

@@ -1,8 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import { Typography, Box } from "@mui/material";
-import { List, ListItem, ListItemIcon, ListItemText } from "@mui/material";
-import Divider from '@mui/material/Divider';
+import { List, ListItem, ListItemIcon } from "@mui/material";
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import YardOutlinedIcon from '@mui/icons-material/YardOutlined';
 import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
@@ -17,7 +16,7 @@ import { Tooltip } from "@mui/material";
 
 const HomePage: NextPage = () => {
 
-  const [studentName, setStudentName] = useState("");
+  const [studentName, setStudentName] = useState("defaultUser");
   const theme = useTheme();
 
   useEffect(() => {
@@ -33,15 +32,15 @@ const HomePage: NextPage = () => {
   ];
 
   return (
-    <Box sx={{ display: "flex", height: "100vh", backgroundColor: "#f2f2f2" }}>
+    <Box sx={{ display: "flex" }}>
       <Box
         sx={{
           position: "fixed",
           top: 0,
           left: 0,
           height: "100vh",
-          width: 65,
-          bgcolor: "#ffffff",
+          width: "65px",
+          bgcolor: "white",
           color: "white",
           display: "flex",
           flexDirection: "column",
@@ -49,13 +48,14 @@ const HomePage: NextPage = () => {
           justifyContent: "space-between"
         }}
       >
-        <Box sx={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}>
-          <Box sx={{ width: 90, alignItems: "center", justifyContent: "center", display: "flex" }}>
+        <Box sx={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center"}}>
+          <Box sx={{ alignItems: "center", justifyContent: "center", display: "flex" }}>
             <Typography variant="h4" sx={{  fontFamily: "var(--font-dancing-script)", color: "#2a7fff" }}>
               M
             </Typography>
           </Box>  
-          <Box>
+
+          <Box sx={{height: "88vh", width: "100%", display: "flex", justifyContent: "center", alignItems: "center" }}>
             <List>
               {sideBarItems.map((item, index) => (
                 <ListItem button key={index} sx={{ flexDirection: "column", display: "flex", justifyContent: "center", paddingY: 2 }}>
@@ -68,19 +68,23 @@ const HomePage: NextPage = () => {
               ))}
             </List>
           </Box>
+
+          <Box sx={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
+            <UpnLogo/>
+          </Box>
         </Box>
       </Box>
 
-      <Box sx={{ marginLeft: "70px", flexGrow: 1, position: "relative" }}>
+      <Box sx={{ marginLeft: "65px", width: "100%" }}>
         <Box
           sx={{
             position: "fixed",
             top: 0,
-            left: "60px",
+            left: 65,
             right: 0,
             height: "65px",
             bgcolor: "white",
-            zIndex: 1000,
+            zIndex: 10,
             display: "flex",
             flexDirection: "column",
             justifyContent: "center",
@@ -92,8 +96,8 @@ const HomePage: NextPage = () => {
           </Typography>
         </Box>
 
-        <Box sx={{ marginTop: "50px", padding: 2 }}>
-          <FeedGrid />
+        <Box sx={{ marginTop: "50px", padding: 2, backgroundColor: "#f0f0f0" }}>
+          <FeedGrid studentName={studentName}/>
         </Box>
       </Box>
     </Box>
