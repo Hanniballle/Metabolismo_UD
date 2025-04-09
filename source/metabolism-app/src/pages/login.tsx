@@ -3,17 +3,12 @@ import { useState, useEffect, ChangeEvent } from "react";
 import { Button, TextField, Container, Typography, Box } from "@mui/material";
 import { useRouter } from "next/navigation"; 
 import type { NextPage } from "next";
-import { useTheme } from "@mui/material/styles";
+import theme from "../utils/theme";
 
 const Login: NextPage = () => {
 
   const router = useRouter();
   const [studentName, setStudentName] = useState("");
-  const theme = useTheme();
-
-  useEffect(() => {
-    console.log("Student name: ", studentName);
-  }, [studentName]);
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
@@ -26,7 +21,7 @@ const Login: NextPage = () => {
       <Box display="flex" flexDirection="column" alignItems="center" mt={8}>
         <Typography variant="h1" sx={{ 
           fontFamily: "var(--font-dancing-script)",
-          color: theme.palette.primary.second,
+          color: theme.palette.secondary.main,
         }}>
           Metabolismo
         </Typography>
@@ -45,10 +40,10 @@ const Login: NextPage = () => {
             value={studentName}
             sx={{ fontFamily: "var(--font-geist-mono)" }}
             InputProps={{
-              sx: { fontFamily: "var(--font-geist-mono)" }, // Apply font to the input
+              sx: { fontFamily: "var(--font-geist-mono)" }, 
             }}
             InputLabelProps={{
-              sx: { fontFamily: "var(--font-geist-mono)" }, // Apply font to the label
+              sx: { fontFamily: "var(--font-geist-mono)" },
             }}
             onChange={(e: ChangeEvent<HTMLInputElement>) => setStudentName(e.target.value)}
           />

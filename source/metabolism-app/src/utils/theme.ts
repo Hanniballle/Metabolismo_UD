@@ -1,15 +1,14 @@
-'use client';
 import { createTheme } from '@mui/material/styles';
 
 const theme = createTheme({
-  typography: {
-    fontFamily: "--font-geist-mono",
-  },
+  cssVariables: true,
   palette: {
     primary: {
-      main: '#2a7fff',
-      second: '#01609C',
+      main: '#2a7fff'
     },
+    secondary: {
+      main: '#01609C',
+    }
   },
 });
 

@@ -90,6 +90,8 @@ const HomePage: React.FC = () => {
             <List>
               {sideBarItems.map((item, index) => (
                 <ListItemButton
+                  key={index}
+                  selected={selectedItem === item.text}
                   sx={{
                     flexDirection: "column",
                     display: "flex",
