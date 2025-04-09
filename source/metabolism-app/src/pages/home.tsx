@@ -1,27 +1,37 @@
 "use client";
 import { useState, useEffect } from "react";
-import { Typography, Box } from "@mui/material";
+import { Typography, Box, IconButton } from "@mui/material";
 import { List, ListItem, ListItemIcon } from "@mui/material";
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
-import YardOutlinedIcon from '@mui/icons-material/YardOutlined';
-import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
-import VideogameAssetOutlinedIcon from '@mui/icons-material/VideogameAssetOutlined';
-import BookOutlinedIcon from '@mui/icons-material/BookOutlined';
-import type { NextPage } from "next";
+import YardOutlinedIcon from "@mui/icons-material/YardOutlined";
+import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
+import VideogameAssetOutlinedIcon from "@mui/icons-material/VideogameAssetOutlined";
+import BookOutlinedIcon from "@mui/icons-material/BookOutlined";
+import LogoutOutlinedIcon from "@mui/icons-material/LogoutOutlined"; // Import logout icon
+import { useRouter } from "next/navigation";
 import UpnLogo from "@/components/upnLogo";
 import FeedGrid from "@/components/feedGrid";
 import { useTheme } from "@mui/material/styles";
 import { Tooltip } from "@mui/material";
 
-
-const HomePage: NextPage = () => {
-
-  const [studentName, setStudentName] = useState("defaultUser");
+const HomePage: React.FC = () => {
+  const [studentName, setStudentName] = useState<string | null>(null);
   const theme = useTheme();
+  const router = useRouter();
 
   useEffect(() => {
-    setStudentName(localStorage.getItem("studentName") ?? "");
-  }, []);
+    const storedName = localStorage.getItem("studentName");
+    if (!storedName) {
+      router.push("/login");
+    } else {
+      setStudentName(storedName);
+    }
+  }, [router]);
+
+  const handleLogout = () => {
+    localStorage.removeItem("studentName"); // Remove studentName from localStorage
+    router.push("/login"); // Redirect to login page
+  };
 
   const sideBarItems = [
     { text: "Inicio", icon: <HomeOutlinedIcon /> },
@@ -30,6 +40,10 @@ const HomePage: NextPage = () => {
     { text: "Juegos", icon: <VideogameAssetOutlinedIcon /> },
     { text: "Más", icon: <BookOutlinedIcon /> },
   ];
+
+  if (!studentName) {
+    return null; // Render nothing while redirecting
+  }
 
   return (
     <Box sx={{ display: "flex" }}>
@@ -45,24 +59,41 @@ const HomePage: NextPage = () => {
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
-          justifyContent: "space-between"
+          justifyContent: "space-between",
         }}
       >
-        <Box sx={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center"}}>
+        <Box sx={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}>
           <Box sx={{ alignItems: "center", justifyContent: "center", display: "flex" }}>
-            <Typography variant="h4" sx={{  fontFamily: "var(--font-dancing-script)", color: "#2a7fff" }}>
+            <Typography variant="h4" sx={{ fontFamily: "var(--font-dancing-script)", color: "#2a7fff" }}>
               M
             </Typography>
-          </Box>  
+          </Box>
 
-          <Box sx={{height: "88vh", width: "100%", display: "flex", justifyContent: "center", alignItems: "center" }}>
+          <Box sx={{ height: "88vh", width: "100%", display: "flex", justifyContent: "center", alignItems: "center" }}>
             <List>
               {sideBarItems.map((item, index) => (
                 <ListItem button key={index} sx={{ flexDirection: "column", display: "flex", justifyContent: "center", paddingY: 2 }}>
-                  <Tooltip title={item.text} placement="right" enterDelay={100} leaveDelay={100} TransitionProps={{ timeout: 300 }} componentsProps={{ tooltip: { sx: { bgcolor: "#2a7fff", color: "#ffffff", fontSize: "0.8rem", borderRadius: 1, boxShadow: 3, px: 1.5, py: 0.5,},},}} > 
-                  <ListItemIcon sx={{ color: '#000000', minWidth: "auto" }}>
-                    {item.icon}
-                  </ListItemIcon>
+                  <Tooltip
+                    title={item.text}
+                    placement="right"
+                    enterDelay={100}
+                    leaveDelay={100}
+                    TransitionProps={{ timeout: 300 }}
+                    componentsProps={{
+                      tooltip: {
+                        sx: {
+                          bgcolor: "#2a7fff",
+                          color: "#ffffff",
+                          fontSize: "0.8rem",
+                          borderRadius: 1,
+                          boxShadow: 3,
+                          px: 1.5,
+                          py: 0.5,
+                        },
+                      },
+                    }}
+                  >
+                    <ListItemIcon sx={{ color: "#000000", minWidth: "auto" }}>{item.icon}</ListItemIcon>
                   </Tooltip>
                 </ListItem>
               ))}
@@ -70,7 +101,7 @@ const HomePage: NextPage = () => {
           </Box>
 
           <Box sx={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
-            <UpnLogo/>
+            <UpnLogo />
           </Box>
         </Box>
       </Box>
@@ -86,22 +117,26 @@ const HomePage: NextPage = () => {
             bgcolor: "white",
             zIndex: 10,
             display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
+            justifyContent: "space-between",
+            alignItems: "center",
             paddingLeft: 4,
+            paddingRight: 4,
           }}
         >
           <Typography variant="h4" sx={{ fontFamily: "var(--font-dancing-script)" }}>
             Hola {studentName} bienvenido a Metabolismo
           </Typography>
+          <IconButton onClick={handleLogout} sx={{ color: theme.palette.primary.main }}>
+            <LogoutOutlinedIcon />
+          </IconButton>
         </Box>
 
         <Box sx={{ marginTop: "50px", padding: 2, backgroundColor: "#f0f0f0" }}>
-          <FeedGrid studentName={studentName}/>
+          <FeedGrid studentName={studentName} />
         </Box>
       </Box>
     </Box>
-  );  
+  );
 };
 
 export default HomePage;
