@@ -24,11 +24,14 @@ const FeedKingdoms: React.FC<{}> = () => {
                                 borderRadius: 2,
                                 overflow: "hidden",
                                 position: "relative",
-                                height: 0,
-                                paddingTop: "100%", // Square aspect ratio
+                                aspectRatio: "1 / 1", // Ensures square cards
+                                display: "flex",
+                                alignItems: "center",
+                                justifyContent: "center",
                                 backgroundImage: `url(${kingdom.image})`,
                                 backgroundSize: "cover",
                                 backgroundPosition: "center",
+                                backgroundRepeat: "no-repeat",
                             }}
                         >
                             <Box
@@ -38,7 +41,7 @@ const FeedKingdoms: React.FC<{}> = () => {
                                     left: 0,
                                     width: "100%",
                                     height: "100%",
-                                    backgroundColor: "rgba(255, 255, 255, 0.3)", // Tiny color mask
+                                    backgroundColor: "rgba(255, 255, 255, 0.4)", // Color mask
                                     display: "flex",
                                     alignItems: "center",
                                     justifyContent: "center",
