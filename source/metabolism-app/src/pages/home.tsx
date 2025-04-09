@@ -1,21 +1,22 @@
 "use client";
 import { useState, useEffect } from "react";
-import { Typography, Box, IconButton, Avatar } from "@mui/material";
-import { List, ListItem, ListItemIcon } from "@mui/material";
+import { Typography, Box, IconButton, Avatar, List, ListItem, ListItemIcon } from "@mui/material";
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import YardOutlinedIcon from "@mui/icons-material/YardOutlined";
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 import VideogameAssetOutlinedIcon from "@mui/icons-material/VideogameAssetOutlined";
 import BookOutlinedIcon from "@mui/icons-material/BookOutlined";
-import LogoutOutlinedIcon from "@mui/icons-material/LogoutOutlined"; // Import logout icon
+import LogoutOutlinedIcon from "@mui/icons-material/LogoutOutlined";
 import { useRouter } from "next/navigation";
 import UpnLogo from "@/components/upnLogo";
 import FeedGrid from "@/components/feedGrid";
 import { useTheme } from "@mui/material/styles";
 import { Tooltip } from "@mui/material";
+import FeedKingdoms from "@/components/feedKingdoms";
 
 const HomePage: React.FC = () => {
   const [studentName, setStudentName] = useState<string | null>(null);
+  const [selectedItem, setSelectedItem] = useState<string>("Inicio"); // Track selected navigation item
   const theme = useTheme();
   const router = useRouter();
 
@@ -29,8 +30,8 @@ const HomePage: React.FC = () => {
   }, [router]);
 
   const handleLogout = () => {
-    localStorage.removeItem("studentName"); 
-    router.push("/login"); 
+    localStorage.removeItem("studentName");
+    router.push("/login");
   };
 
   const sideBarItems = [
@@ -40,6 +41,22 @@ const HomePage: React.FC = () => {
     { text: "Juegos", icon: <VideogameAssetOutlinedIcon /> },
     { text: "Más", icon: <BookOutlinedIcon /> },
   ];
+
+  const renderContent = () => {
+    switch (selectedItem) {
+      case "Inicio":
+        return <FeedGrid studentName={studentName!} />;
+      case "Reinos":
+        return <FeedKingdoms />;
+        
+      default:
+        return (
+          <Typography variant="body1" sx={{ mt: 2, fontFamily: "var(--font-geist-mono)" }}>
+            Selecciona una opción del menú.
+          </Typography>
+        );
+    }
+  };
 
   if (!studentName) {
     return null; 
@@ -72,7 +89,18 @@ const HomePage: React.FC = () => {
           <Box sx={{ height: "88vh", width: "100%", display: "flex", justifyContent: "center", alignItems: "center" }}>
             <List>
               {sideBarItems.map((item, index) => (
-                <ListItem button key={index} sx={{ flexDirection: "column", display: "flex", justifyContent: "center", paddingY: 2 }}>
+                <ListItem
+                  button
+                  key={index}
+                  sx={{
+                    flexDirection: "column",
+                    display: "flex",
+                    justifyContent: "center",
+                    paddingY: 2,
+                    bgcolor: selectedItem === item.text ? "#f0f0f0" : "transparent", // Highlight selected item
+                  }}
+                  onClick={() => setSelectedItem(item.text)} // Update selected item
+                >
                   <Tooltip
                     title={item.text}
                     placement="right"
@@ -136,8 +164,8 @@ const HomePage: React.FC = () => {
           </Box>
         </Box>
 
-        <Box sx={{ marginTop: "50px", padding: 2, backgroundColor: "#f0f0f0" }}>
-          <FeedGrid studentName={studentName} />
+        <Box sx={{ marginTop: "65px", padding: 2, backgroundColor: "#f0f0f0" }}>
+          {renderContent()}
         </Box>
       </Box>
     </Box>
