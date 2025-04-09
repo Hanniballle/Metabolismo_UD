@@ -1,6 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
-import { Typography, Box, IconButton } from "@mui/material";
+import { Typography, Box, IconButton, Avatar } from "@mui/material";
 import { List, ListItem, ListItemIcon } from "@mui/material";
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import YardOutlinedIcon from "@mui/icons-material/YardOutlined";
@@ -29,8 +29,8 @@ const HomePage: React.FC = () => {
   }, [router]);
 
   const handleLogout = () => {
-    localStorage.removeItem("studentName"); // Remove studentName from localStorage
-    router.push("/login"); // Redirect to login page
+    localStorage.removeItem("studentName"); 
+    router.push("/login"); 
   };
 
   const sideBarItems = [
@@ -42,7 +42,7 @@ const HomePage: React.FC = () => {
   ];
 
   if (!studentName) {
-    return null; // Render nothing while redirecting
+    return null; 
   }
 
   return (
@@ -126,9 +126,14 @@ const HomePage: React.FC = () => {
           <Typography variant="h4" sx={{ fontFamily: "var(--font-dancing-script)" }}>
             Hola {studentName} bienvenido a Metabolismo
           </Typography>
-          <IconButton onClick={handleLogout} sx={{ color: theme.palette.primary.main }}>
-            <LogoutOutlinedIcon />
-          </IconButton>
+          <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
+            <Avatar sx={{ bgcolor: theme.palette.primary.main }}>
+              {studentName?.charAt(0).toUpperCase()}
+            </Avatar>
+            <IconButton onClick={handleLogout} sx={{ color: theme.palette.primary.main }}>
+              <LogoutOutlinedIcon />
+            </IconButton>
+          </Box>
         </Box>
 
         <Box sx={{ marginTop: "50px", padding: 2, backgroundColor: "#f0f0f0" }}>
