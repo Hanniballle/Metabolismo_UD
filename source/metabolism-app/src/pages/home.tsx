@@ -12,6 +12,7 @@ import UpnLogo from "@/components/upnLogo";
 import FeedGrid from "@/components/feedGrid";
 import { Tooltip } from "@mui/material";
 import FeedKingdoms from "@/components/feedKingdoms";
+import FeedPlus from "@/components/feedPlus";
 import theme from "@/utils/theme"; 
 
 const HomePage: React.FC = () => {
@@ -47,6 +48,8 @@ const HomePage: React.FC = () => {
         return <FeedGrid studentName={studentName!} />;
       case "Reinos":
         return <FeedKingdoms />;
+      case "Más":
+        return <FeedPlus />;
         
       default:
         return (
@@ -151,7 +154,7 @@ const HomePage: React.FC = () => {
           }}
         >
           <Typography variant="h4" sx={{ fontFamily: "var(--font-dancing-script)" }}>
-            Hola {studentName} bienvenido a Metabolismo
+            Hola {studentName} bienvenid@ a Metabolismo
           </Typography>
           <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
             <Avatar sx={{ bgcolor: theme.palette.primary.main }}>

@@ -14,6 +14,7 @@ const kingdoms: Kingdom[] = [
     { name: "Protozoa", image: "/kingdoms/protozoa.jpeg" },
     { name: "Chromista", image: "/kingdoms/chromista.jpg" },
     { name: "Archaea", image: "/kingdoms/archaea.jpg" },
+    { name: "Bacteria", image: "/Kingdoms/usuario_© NIAID.jpg"}
 ];
 
 const FeedKingdoms: React.FC<object> = () => {
@@ -30,7 +31,7 @@ const FeedKingdoms: React.FC<object> = () => {
           <Card
             sx={{
               borderRadius: 4,
-              border: selected === k.name ? '3px solid #7e57c2' : 'none',
+              border: selected === k.name ? '3px solid #2a7fff' : 'none',
               boxShadow: 3,
               transition: 'transform 0.3s ease',
               transform: selected === k.name ? 'scale(1.03)' : 'none',
