@@ -10,14 +10,13 @@ import LogoutOutlinedIcon from "@mui/icons-material/LogoutOutlined";
 import { useRouter } from "next/navigation";
 import UpnLogo from "@/components/upnLogo";
 import FeedGrid from "@/components/feedGrid";
-import { useTheme } from "@mui/material/styles";
 import { Tooltip } from "@mui/material";
 import FeedKingdoms from "@/components/feedKingdoms";
+import theme from "@/utils/theme"; 
 
 const HomePage: React.FC = () => {
   const [studentName, setStudentName] = useState<string | null>(null);
   const [selectedItem, setSelectedItem] = useState<string>("Inicio"); // Track selected navigation item
-  const theme = useTheme();
   const router = useRouter();
 
   useEffect(() => {
