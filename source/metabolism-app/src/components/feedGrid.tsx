@@ -1,4 +1,4 @@
-import React, { use, useEffect } from "react";
+import React, { useEffect } from "react";
 import { Box, Grid, Card, CardMedia, CardContent, Typography, IconButton } from "@mui/material";
 import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
 import FavoriteOutlinedIcon from '@mui/icons-material/FavoriteOutlined';
@@ -33,8 +33,7 @@ const feedData: FeedItem[] = [
       text: "Historia",
       image: "/start/Historia.jpg",
       color: "#ff9800",
-      height: 500,
-      liked: true,
+      height: 500
     },
     {
       text: "Biomoléculas",
@@ -65,7 +64,6 @@ const feedData: FeedItem[] = [
       image: "/start/Anabolismo.jpg",
       color: "#3f51b5",
       height: 500,
-      liked: false,
     },
     {
       text: "Catabolismo",
@@ -95,10 +93,6 @@ const feedData: FeedItem[] = [
   const FeedGrid: React.FC<FeedGridProps> = ({studentName}) => {
     const [likedItems, setLikedItems] = React.useState<{ [key: string]: boolean }>({});
     const storageKey = `likedItems_${studentName}`;
-
-    useEffect(() => {
-      console.log("Student name: ", studentName, storageKey);
-    },[]);
 
     useEffect(() => {
       const storedLikes = JSON.parse(localStorage.getItem(storageKey) || "{}");

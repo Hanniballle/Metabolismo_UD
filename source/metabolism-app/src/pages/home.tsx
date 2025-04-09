@@ -1,6 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
-import { Typography, Box, IconButton, Avatar, List, ListItem, ListItemIcon } from "@mui/material";
+import { Typography, Box, IconButton, Avatar, List, ListItemButton, ListItemIcon } from "@mui/material";
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import YardOutlinedIcon from "@mui/icons-material/YardOutlined";
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
@@ -89,17 +89,15 @@ const HomePage: React.FC = () => {
           <Box sx={{ height: "88vh", width: "100%", display: "flex", justifyContent: "center", alignItems: "center" }}>
             <List>
               {sideBarItems.map((item, index) => (
-                <ListItem
-                  button
-                  key={index}
+                <ListItemButton
                   sx={{
                     flexDirection: "column",
                     display: "flex",
                     justifyContent: "center",
                     paddingY: 2,
-                    bgcolor: selectedItem === item.text ? "#f0f0f0" : "transparent", // Highlight selected item
+                    bgcolor: selectedItem === item.text ? "#f0f0f0" : "transparent", 
                   }}
-                  onClick={() => setSelectedItem(item.text)} // Update selected item
+                  onClick={() => setSelectedItem(item.text)} 
                 >
                   <Tooltip
                     title={item.text}
@@ -123,7 +121,7 @@ const HomePage: React.FC = () => {
                   >
                     <ListItemIcon sx={{ color: "#000000", minWidth: "auto" }}>{item.icon}</ListItemIcon>
                   </Tooltip>
-                </ListItem>
+                </ListItemButton>
               ))}
             </List>
           </Box>
