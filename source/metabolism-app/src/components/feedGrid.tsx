@@ -13,7 +13,7 @@ interface FeedItem {
 const feedData: FeedItem[] = [
      {
       text: "Guía de inicio",
-      image: "",
+      image: "/start/Guia.jpg",
       color: "#fbc02d",
       height: 500,
     },
@@ -25,7 +25,7 @@ const feedData: FeedItem[] = [
     },
     {
       text: "Carta al estudiante",
-      image: "https://source.unsplash.com/400x300/?canyon",
+      image: "/start/Cartae.jpg",
       color: "#795548",
       height: 500,
     },
@@ -44,7 +44,7 @@ const feedData: FeedItem[] = [
     },
     {
       text: "Bioenergética",
-      image: "",
+      image: "/start/Bioenergetica.jpg",
       color: "#fbc02d",
       height: 500,
     },
@@ -56,7 +56,7 @@ const feedData: FeedItem[] = [
     },
     {
       text: "Metabolismo",
-      image: "https://source.unsplash.com/400x300/?snow",
+      image: "/start/Metabolismo.jpg",
       color: "#607d8b",
       height: 500,
     },
