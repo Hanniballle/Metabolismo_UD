@@ -88,7 +88,7 @@ const HomePage: React.FC = () => {
             </Typography>
           </Box>
 
-          <Box sx={{ height: "88vh", width: "100%", display: "flex", justifyContent: "center", alignItems: "center" }}>
+          <Box sx={{ height: "85vh", width: "100%", display: "flex", justifyContent: "center", alignItems: "center" }}>
             <List>
               {sideBarItems.map((item, index) => (
                 <ListItemButton

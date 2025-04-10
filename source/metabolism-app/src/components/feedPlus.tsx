@@ -2,11 +2,12 @@ import React from 'react';
 import { Box, Typography, Grid, Avatar, Link } from '@mui/material';
 
 const FeedPlus = () => {
+  const dir = '/persons/'
   const users = [
-    { name: 'Nicoll Puentes', photo: '/images/user1.jpg' },
-    { name: 'Mateo Silva', photo: '/images/user2.jpg' },
-    { name: 'Diego Molina', photo: '/images/user3.jpg' },
-    { name: 'Santiago Molina', photo: '/images/user4.jpg' },
+    { name: 'Nicoll Puentes', photo: dir + 'nicoll.jpg' },
+    { name: 'Mateo Silva', photo: dir + 'mateo.jpg' },
+    { name: 'Diego Molina', photo: dir +'diego.png' },
+    { name: 'Santiago Molina', photo: dir + 'santiago.jpg' },
   ];
 
   const webgraphy = [
