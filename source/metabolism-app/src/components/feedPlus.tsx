@@ -37,7 +37,7 @@ const FeedPlus = () => {
       </Typography>
       <Grid container spacing={4} justifyContent="center">
         {users.map((user, index) => (
-          <Grid item key={index} xs={6} sm={3} textAlign="center">
+          <Grid key={index} size={{ xs: 6, sm: 3, md: 3 }} textAlign="center">
             <Avatar
               alt={user.name}
               src={user.photo}
