@@ -3,7 +3,7 @@ import { useState, ChangeEvent } from "react";
 import { Button, TextField, Container, Typography, Box } from "@mui/material";
 import { useRouter } from "next/navigation"; 
 import type { NextPage } from "next";
-import theme from "../utils/theme";
+import theme from "../../utils/theme";
 
 const Login: NextPage = () => {
 
@@ -16,7 +16,7 @@ const Login: NextPage = () => {
     router.push("/home");
   };
 
-  return (
+  return (   
     <Container maxWidth="xs">
       <Box display="flex" flexDirection="column" alignItems="center" mt={8}>
         <Typography variant="h1" sx={{ 

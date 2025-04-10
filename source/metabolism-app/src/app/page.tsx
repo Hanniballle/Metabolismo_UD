@@ -1,5 +1,5 @@
 import styles from "../styles/page.module.css";
-import Login from "../pages/login";
+import Login from "./login/page";
 
 export default function Home() {
   return (
