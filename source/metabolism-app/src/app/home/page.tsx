@@ -9,7 +9,7 @@ import BookOutlinedIcon from "@mui/icons-material/BookOutlined";
 import LogoutOutlinedIcon from "@mui/icons-material/LogoutOutlined";
 import { useRouter } from "next/navigation";
 import UpnLogo from "@/components/upnLogo";
-import FeedGrid from "@/components/feedGrid";
+import FeedHome from "@/components/feedHome";
 import { Tooltip } from "@mui/material";
 import FeedKingdoms from "@/components/feedKingdoms";
 import FeedPlus from "@/components/feedPlus";
@@ -45,7 +45,7 @@ const HomePage: React.FC = () => {
   const renderContent = () => {
     switch (selectedItem) {
       case "Inicio":
-        return <FeedGrid studentName={studentName!} />;
+        return <FeedHome studentName={studentName!} />;
       case "Reinos":
         return <FeedKingdoms />;
       case "Más":
