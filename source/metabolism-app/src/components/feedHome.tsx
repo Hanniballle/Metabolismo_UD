@@ -86,11 +86,11 @@ const feedData: FeedItem[] = [
     
   ];
 
-  interface FeedGridProps {
+  interface FeedHomeProps {
     studentName: string;
   }
 
-  const FeedGrid: React.FC<FeedGridProps> = ({studentName}) => {
+  const FeedHome: React.FC<FeedHomeProps> = ({studentName}) => {
     const [likedItems, setLikedItems] = React.useState<{ [key: string]: boolean }>({});
     const storageKey = `likedItems_${studentName}`;
 
@@ -141,4 +141,4 @@ const feedData: FeedItem[] = [
     );
   }
 
-  export default FeedGrid;
+  export default FeedHome;
