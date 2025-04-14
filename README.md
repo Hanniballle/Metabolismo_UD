@@ -17,4 +17,9 @@ https://www.canva.com/design/DAGhpvyKAgQ/iodl9oMJkFI34YpunByVCg/edit
 - Animalia 2 Usuario_© Scott Walmsley https://colombia.inaturalist.org/photos/473516138 
 - Protozoa 2 Usuario © Alex Kenins https://colombia.inaturalist.org/photos/474706649 
 - Archaea 2 16 usuario © wojtest https://colombia.inaturalist.org/photos/340938685 
-** Perfil fungi 
+**Perfil fungi**
+- Fotogafias
+- Publicacion 1 Foto fosil hongo: De G.J. Retallack - Trabajo propio, CC BY-SA 4.0, https://commons.wikimedia.org/w/index.php?curid=48796185
+- Publicacion 2 Foto hongo acuatico De Author and original uploader was MidgleyDJ at en.wikipedia - Transferido desde en.wikipedia a Commons., CC BY-SA 2.5, https://commons.wikimedia.org/w/index.php?curid=1702586
+- Publicacion 3 Foto amanita De Bernard Spragg. NZ from Christchurch, New Zealand - Amanita muscaria (1), CC0, https://commons.wikimedia.org/w/index.php?curid=70122479
+- Publicacion 4 Hongo micorriza  Eric Steinert   CC BY-SA 3.0, https://commons.wikimedia.org/w/index.php?curid=81254  
