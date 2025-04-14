@@ -3,7 +3,7 @@ Unidad didáctica del metabolismo con enfoque educativo para la IPN
 ## Plantilla
 https://www.canva.com/design/DAGhpvyKAgQ/iodl9oMJkFI34YpunByVCg/edit
 ## Bibliografía
-###usuarios kingdoms  
+### Usuarios kingdoms  
 - Animalia1 usuario_© Tony Iwane https://colombia.inaturalist.org/photos/5710720. 
 - Fungi 1 usuario_© 沈冠宇Kuan-yu Shen https://colombia.inaturalist.org/photos/20076242. 
 - Protozoa 1 usuario_© Fredy Morales https://colombia.inaturalist.org/photos/406369202. 
