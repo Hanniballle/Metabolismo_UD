@@ -15,7 +15,7 @@ const Archaea: React.FC<FeedGridProps> = ({ selected, onBack }) => {
   return (
     <Box>
       <Button onClick={onBack} variant="contained" sx={{ mb: 2 }}>
-        Back to Kingdoms
+        Volver a los reinos
       </Button>
     
       {/* Perfil destacado */}
@@ -28,13 +28,13 @@ const Archaea: React.FC<FeedGridProps> = ({ selected, onBack }) => {
           border: '1px solid #ccc',
           borderRadius: 2,
           mb: 4,
-          backgroundColor: '#fafafa',
+          backgroundColor: '#ffffff',
         }}
       >
         {/* Avatar */}
         <Avatar
           alt="Archaea"
-          src="/feeds/archaea_avatar.jpg" // Asegúrate que este archivo exista
+          src="/Archaea/Archaeau.jpeg" // Asegúrate que este archivo exista
           sx={{ width: 80, height: 80, border: '3px solid #1976d2' }}
         />
 
