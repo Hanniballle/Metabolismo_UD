@@ -1,112 +1,221 @@
-// components/FeedGrid.tsx
+import React, { useState } from 'react';
+import {
+  Avatar,
+  Box,
+  Typography,
+  Chip,
+  Grid,
+  Card,
+  CardContent,
+  IconButton,
+  CardHeader,
+  CardMedia,
+} from '@mui/material';
+import LightbulbIcon from '@mui/icons-material/Lightbulb';
+import AssignmentIcon from '@mui/icons-material/Assignment';
+import CheckCircleIcon from '@mui/icons-material/CheckCircle';
+import FavoriteIcon from '@mui/icons-material/Favorite';
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
+import ChevronRightIcon from '@mui/icons-material/ChevronRight';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 
-import React from 'react';
-import { Box, Button, Typography, Grid, Card, CardMedia, Avatar, Stack, IconButton, } from '@mui/material';
-import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
-import LightbulbOutlinedIcon from '@mui/icons-material/LightbulbOutlined';
-import AssignmentTurnedInOutlinedIcon from '@mui/icons-material/AssignmentTurnedInOutlined';
+// Galería de imágenes para la primera publicación
+const postGallery = [
+  '/Archaea/Publ21.jpg',
+  '/Archaea/Publi22.jpg',
+  '/Archaea/Publi23.jpg',
+];
 
-type FeedGridProps = {
-  selected: string;
-  onBack: () => void;
+// Publicaciones simuladas
+const posts = [
+  {
+    user: 'Archaea',
+    username: 'Halobacteria',
+    image: '/img/post1.jpg',
+    caption: 'Las archaeas prosperan en ambientes extremos como salinas y aguas termales.',
+  },
+  {
+    user: 'Archaea',
+    username: 'Halobacteria',
+    image: 'pstGallery', // Usado solo en galería
+    isGallery: true,
+    caption:
+      'Las arqueas son microorganismos antiguos que han estado en la Tierra desde hace más de 3.500 millones de años.',
+  },
+  {
+    user: 'Archaea',
+    username: 'Halobacteria',
+    image: '/img/post1.jpg',
+    caption: 'Las archaeas prosperan en ambientes extremos como salinas y aguas termales.',
+  },
+  {
+    user: 'Archaea',
+    username: 'Halobacteria',
+    image: '/img/post2.jpg',
+    caption: 'Algunas archaeas generan metano y contribuyen al ciclo del carbono.',
+  },
+  {
+    user: 'Archaea',
+    username: 'Halobacteria',
+    image: '/img/post3.jpg',
+    caption: 'Su estudio nos ayuda a comprender los primeros pasos de la vida en la Tierra.',
+  },
+  {
+    user: 'Archaea',
+    username: 'Halobacteria',
+    image: '/img/post4.jpg',
+    caption: 'Pueden vivir sin oxígeno y metabolizar sustancias como el hidrógeno.',
+  },
+];
+
+const ArchaeaPost = ({ post, isGallery = false }: any) => {
+  const [liked, setLiked] = useState(false);
+  const [expanded, setExpanded] = useState(false);
+  const [galleryIndex, setGalleryIndex] = useState(0);
+
+  const handleLike = () => setLiked(!liked);
+  const handleExpand = () => setExpanded(!expanded);
+  const nextImage = () =>
+    setGalleryIndex((prev) => (prev + 1) % postGallery.length);
+  const prevImage = () =>
+    setGalleryIndex((prev) => (prev === 0 ? postGallery.length - 1 : prev - 1));
+
+  return (
+    <Card sx={{ mb: 3 }}>
+      <CardHeader
+        avatar={
+          <Avatar src="/path-to-avatar.jpg" sx={{ border: '2px solid #3f51b5' }} />
+        }
+        title={<Typography fontWeight="bold">{post.user}</Typography>}
+      />
+
+      {isGallery ? (
+        <Box sx={{ position: 'relative' }}>
+          <CardMedia
+            component="img"
+            height="300"
+            image={postGallery[galleryIndex]}
+            alt="Galería"
+          />
+          <IconButton
+            onClick={prevImage}
+            sx={{ position: 'absolute', top: '50%', left: 8, color: 'white' }}
+          >
+            <ChevronLeftIcon />
+          </IconButton>
+          <IconButton
+            onClick={nextImage}
+            sx={{ position: 'absolute', top: '50%', right: 8, color: 'white' }}
+          >
+            <ChevronRightIcon />
+          </IconButton>
+        </Box>
+      ) : (
+        <CardMedia
+          component="img"
+          height="300"
+          image={post.image}
+          alt="Post"
+        />
+      )}
+
+      <CardContent>
+        <Box sx={{ display: 'flex', alignItems: 'center', mb: 1 }}>
+          <IconButton onClick={handleLike} sx={{ color: liked ? 'red' : 'inherit' }}>
+            {liked ? <FavoriteIcon /> : <FavoriteBorderIcon />}
+          </IconButton>
+        </Box>
+
+        <Typography variant="body2">
+          <strong>{post.username}</strong>{' '}
+          {expanded ? post.caption : `${post.caption.slice(0, 70)}...`}
+          <IconButton onClick={handleExpand} size="small">
+            {expanded ? <ExpandLessIcon fontSize="small" /> : <ExpandMoreIcon fontSize="small" />}
+          </IconButton>
+        </Typography>
+      </CardContent>
+    </Card>
+  );
 };
 
-const Archaea: React.FC<FeedGridProps> = ({ selected, onBack }) => {
+const ArchaeaProfile = () => {
   return (
-    <Box>
-      <Button onClick={onBack} variant="contained" sx={{ mb: 2 }}>
-        Volver a los reinos
-      </Button>
-    
-      {/* Perfil destacado */}
-      <Box
-        display="flex"
-        alignItems="flex-start"
-        gap={2}
-        p={2}
-        sx={{
-          border: '1px solid #ccc',
-          borderRadius: 2,
-          mb: 4,
-          backgroundColor: '#ffffff',
-        }}
-      >
-        {/* Avatar */}
+    <Box sx={{ maxWidth: 900, mx: 'auto', pt: 4 }}>
+      {/* Perfil */}
+      <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
         <Avatar
           alt="Archaea"
-          src="/Archaea/Archaeau.jpeg" // Asegúrate que este archivo exista
-          sx={{ width: 80, height: 80, border: '3px solid #1976d2' }}
+          src="/path-to-avatar.jpg"
+          sx={{
+            width: 60,
+            height: 60,
+            mr: 2,
+            border: '3px solid #3f51b5',
+          }}
         />
-
-        {/* Texto */}
-        <Box flex={1}>
+        <Box>
           <Typography variant="h6" fontWeight="bold">
             Archaea
           </Typography>
-          <Typography
-            variant="subtitle1"
-            sx={{
-              backgroundColor: '#ccc',
-              display: 'inline-block',
-              px: 1.5,
-              py: 0.5,
-              borderRadius: '10px',
-              fontSize: '0.9rem',
-            }}
-          >
-            @Halobacteria
-          </Typography>
-
-          <Box mt={1}>
-            <Typography variant="body2">
-              <strong>CONCEPTUAL:</strong> Describir como los hongos respondes a los estímulos del entorno.
-            </Typography>
-            <Typography variant="body2">
-              <strong>PROCEDIMENTAL:</strong> Comparar como se dan los procesos de irritabilidad en los hongos con otros organismos mediante la elaboración de esquemas.
-            </Typography>
-            <Typography variant="body2">
-              <strong>ACTITUDINAL:</strong> Valorar el reino fungi como organismos vitales en los ecosistemas.
-            </Typography>
-          </Box>
+          <Chip label="@Halobacteria" size="small" />
         </Box>
-
-        {/* Iconos */}
-        <Stack direction="row" spacing={1} mt={1}>
-          <IconButton sx={{ bgcolor: '#c49b6e', color: 'white' }}>
-            <LightbulbOutlinedIcon />
-          </IconButton>
-          <IconButton sx={{ bgcolor: '#3a3a4f', color: 'white' }}>
-            <AssignmentTurnedInOutlinedIcon />
-          </IconButton>
-          <IconButton sx={{ bgcolor: '#3a3a4f', color: 'white' }}>
-            <AssignmentTurnedInOutlinedIcon />
-          </IconButton>
-          <IconButton sx={{ bgcolor: '#c49b6e', color: 'white' }}>
-            <CheckCircleOutlineIcon />
-          </IconButton>
-        </Stack>
       </Box>
 
-      {/* Grid de posts */}
-      <Grid container spacing={3}>
-        {[1, 2, 3].map((item) => (
-          <Grid item xs={12} sm={6} md={4} key={item}>
-            <Card>
-              <CardMedia
-                component="img"
-                image={`/feeds/${selected.toLowerCase()}_${item}.jpg`}
-                alt={`${selected} feed ${item}`}
-                sx={{ height: 220 }}
-              />
-              <Typography variant="body1" sx={{ p: 2 }}>
-                {selected} Feed Post {item}
-              </Typography>
-            </Card>
-          </Grid>
-        ))}
+      <Box sx={{ mb: 4 }}>
+        <Typography variant="body1" gutterBottom>
+          <strong>CONCEPTUAL:</strong> Describir cómo los hongos responden a los estímulos del entorno.
+        </Typography>
+        <Typography variant="body1" gutterBottom>
+          <strong>PROCEDIMENTAL:</strong> Comparar cómo se dan los procesos de irritabilidad en los hongos con otros organismos mediante esquemas.
+        </Typography>
+        <Typography variant="body1">
+          <strong>ACTITUDINAL:</strong> Valorar el reino fungi como organismos vitales en los ecosistemas.
+        </Typography>
+      </Box>
+
+      <Grid container spacing={2} justifyContent="center" sx={{ mb: 4 }}>
+        <Grid item>
+          <Card sx={{ width: 60, height: 60, display: 'flex', alignItems: 'center', justifyContent: 'center', bgcolor: '#c1a57b' }}>
+            <CardContent>
+              <LightbulbIcon fontSize="large" />
+            </CardContent>
+          </Card>
+        </Grid>
+        <Grid item>
+          <Card sx={{ width: 60, height: 60, display: 'flex', alignItems: 'center', justifyContent: 'center', bgcolor: '#7e7c84' }}>
+            <CardContent>
+              <AssignmentIcon fontSize="large" />
+            </CardContent>
+          </Card>
+        </Grid>
+        <Grid item>
+          <Card sx={{ width: 60, height: 60, display: 'flex', alignItems: 'center', justifyContent: 'center', bgcolor: '#7e7c84' }}>
+            <CardContent>
+              <AssignmentIcon fontSize="large" />
+            </CardContent>
+          </Card>
+        </Grid>
+        <Grid item>
+          <Card sx={{ width: 60, height: 60, display: 'flex', alignItems: 'center', justifyContent: 'center', bgcolor: '#a36a3c' }}>
+            <CardContent>
+              <CheckCircleIcon fontSize="large" />
+            </CardContent>
+          </Card>
+        </Grid>
       </Grid>
+
+      <Typography variant="caption" color="textSecondary" sx={{ textAlign: 'center', display: 'block', mb: 2 }}>
+        PUBLICACIONES
+      </Typography>
+
+      {/* Publicaciones */}
+      {posts.map((post, i) => (
+        <ArchaeaPost key={i} post={post} isGallery={post.isGallery} />
+      ))}
     </Box>
   );
 };
 
-export default Archaea;
+export default ArchaeaProfile;
