@@ -9,7 +9,7 @@ const posts = [
     title: 'Archaea',
     dirImage: '/archaea-bacteria/avatar.jpeg',
     subtitle: '@Halobacteria - Historia de las archaeas en la tierra ',
-    image: '/archaea/publication1.webp',
+    image: '/archaea-bacteria/publication1.webp',
     caption: 'Las arqueas son microorganismos increíblemente antiguos que han estado en la Tierra desde hace más de 3.500 millones de años, incluso antes de que existieran las plantas y los animales. Surgieron en un momento en que el planeta era muy diferente: no había oxígeno en la atmósfera, las temperaturas eran extremadamente altas y los ambientes eran hostiles. A pesar de estas condiciones, las arqueas lograron adaptarse y evolucionar, desarrollando formas únicas de sobrevivir, como vivir en aguas termales, fuentes ácidas o incluso en el fondo del océano.  Con el tiempo, las arqueas se diversificaron en distintos grupos, como las Crenarchaeotas (muchas de ellas amantes del calor extremo) y las Euryarchaeotas (que incluyen a las metanógenas, productoras de metano). A diferencia de las bacterias, las arqueas tienen características especiales, como membranas celulares con una estructura química única y genes más parecidos a los de los eucariotas (organismos más complejos, como los humanos). Esto sugiere que, aunque son microscópicas, las arqueas tienen un papel fundamental en la historia de la vida en nuestro planeta. '
   },
   {
