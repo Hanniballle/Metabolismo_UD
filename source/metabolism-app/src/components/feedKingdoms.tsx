@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import { Box, Grid, Card, Typography, CardMedia, CardActionArea, Button } from "@mui/material";
+import { Box, Grid, Card, Typography, CardMedia, CardActionArea } from "@mui/material";
 import Archaea from "./kingdoms/archaea";
+import Chromista from "./kingdoms/chromista";
 
 interface Kingdom {
     name: string;
@@ -31,10 +32,24 @@ const FeedKingdoms: React.FC<object> = () => {
         setSelected(null);
     };
 
+    const renderSelectedComponent = () => {
+        switch (selected) {
+            case "Archaea":
+                return <Archaea selected={selected} onBack={handleBack} />;
+            case "Chromista":
+                return <Chromista selected={selected} onBack={handleBack} />;
+                
+            case "Eukarya":
+
+            default:
+                return <div>Please select a domain.</div>;
+        }
+    }
+
     return (
         <Box>
             {showFeed && selected ? (
-                <Archaea selected={selected} onBack={handleBack} />
+                renderSelectedComponent()
             ) : (
                 <Grid container spacing={3} justifyContent="center" sx={{ p: 4 }}>
                     {kingdoms.map((k, index) => (
