@@ -23,7 +23,7 @@ const Post = ({ post, isGallery = false, postGallery }: any) => {
   return (
     <Card sx={{ mb: 3 }}>
       <CardHeader
-        avatar={ <AvatarKingdom name='Archaea' dirImage='/archaea/avatar.jpeg' />}
+        avatar={ <AvatarKingdom name={post.title} dirImage={post.dirImage} />}
         title={<Typography fontWeight="bold">{post.title}</Typography>}
       />
 
