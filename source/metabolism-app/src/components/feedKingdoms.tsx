@@ -27,17 +27,12 @@ const FeedKingdoms: React.FC<object> = () => {
         setShowFeed(true);
     };
 
-    const handleBack = () => {
-        setShowFeed(false);
-        setSelected(null);
-    };
-
     const renderSelectedComponent = () => {
         switch (selected) {
             case "Archaea":
-                return <Archaea selected={selected} onBack={handleBack} />;
+                return <Archaea/>;
             case "Chromista":
-                return <Chromista selected={selected} onBack={handleBack} />;
+                return <Chromista/>;
                 
             case "Eukarya":
 

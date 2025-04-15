@@ -86,9 +86,11 @@ const feedData: FeedItem[] = [
     
   ];
 
+
   interface FeedHomeProps {
     studentName: string;
   }
+
 
   const FeedHome: React.FC<FeedHomeProps> = ({studentName}) => {
     const [likedItems, setLikedItems] = React.useState<{ [key: string]: boolean }>({});

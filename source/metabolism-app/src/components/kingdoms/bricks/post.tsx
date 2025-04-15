@@ -8,8 +8,22 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 import AvatarKingdom from './avatar';
 
+type PostType = {
+  title: string;
+  subtitle: string;
+  caption: string;
+  image: string;
+  dirImage?: string;
+};
 
-const Post = ({ post, isGallery = false, postGallery }: any) => {
+type PostProps = {
+  post: PostType;
+  isGallery?: boolean;
+  postGallery?: string[];
+};
+
+
+const Post: React.FC<PostProps> = ({ post, isGallery = false, postGallery = [] }) => {
 
   const [liked, setLiked] = useState(false);
   const [expanded, setExpanded] = useState(false);
