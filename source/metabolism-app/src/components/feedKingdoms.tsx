@@ -15,7 +15,7 @@ const kingdoms: Kingdom[] = [
     { name: "Protozoa", image: "/kingdoms/protozoa.jpeg" },
     { name: "Chromista", image: "/kingdoms/chromista.jpg" },
     { name: "Archaea", image: "/kingdoms/archaea.jpg" },
-    { name: "Bacteria", image: "/Kingdoms/usuario_© NIAID.jpg"}
+    { name: "Bacteria", image: "/kingdoms/bacteria.jpg"}
 ];
 
 const FeedKingdoms: React.FC<object> = () => {
