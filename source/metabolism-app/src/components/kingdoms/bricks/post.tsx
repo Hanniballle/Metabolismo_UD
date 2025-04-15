@@ -1,17 +1,5 @@
 import React, { useState } from 'react';
-import {
-  Avatar,
-  Box,
-  Typography,
-  Chip,
-  Grid,
-  Card,
-  CardContent,
-  IconButton,
-  CardHeader,
-  CardMedia,
-} from '@mui/material';
-
+import { Box, Typography, Card, CardContent, IconButton, CardHeader, CardMedia } from '@mui/material';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
@@ -34,16 +22,14 @@ const Post = ({ post, isGallery = false }: any) => {
 
   const handleLike = () => setLiked(!liked);
   const handleExpand = () => setExpanded(!expanded);
-  const nextImage = () =>
-    setGalleryIndex((prev) => (prev + 1) % postGallery.length);
-  const prevImage = () =>
-    setGalleryIndex((prev) => (prev === 0 ? postGallery.length - 1 : prev - 1));
+  const nextImage = () => setGalleryIndex((prev) => (prev + 1) % postGallery.length);
+  const prevImage = () => setGalleryIndex((prev) => (prev === 0 ? postGallery.length - 1 : prev - 1));
 
   return (
     <Card sx={{ mb: 3 }}>
       <CardHeader
         avatar={ <AvatarKingdom name='Archaea' dirImage='/archaea/avatar.jpeg' />}
-        title={<Typography fontWeight="bold">{post.user}</Typography>}
+        title={<Typography fontWeight="bold">{post.title}</Typography>}
       />
 
       {isGallery ? (
