@@ -8,13 +8,8 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 import AvatarKingdom from './avatar';
 
-const postGallery = [
-    '/Archaea/Publ21.jpg',
-    '/Archaea/Publi22.jpg',
-    '/Archaea/Publi23.jpg',
-  ];
 
-const Post = ({ post, isGallery = false }: any) => {
+const Post = ({ post, isGallery = false, postGallery }: any) => {
 
   const [liked, setLiked] = useState(false);
   const [expanded, setExpanded] = useState(false);
@@ -36,7 +31,7 @@ const Post = ({ post, isGallery = false }: any) => {
         <Box sx={{ position: 'relative' }}>
           <CardMedia
             component="img"
-            height="300"
+            height="600"
             image={postGallery[galleryIndex]}
             alt="Galería"
           />
@@ -56,7 +51,6 @@ const Post = ({ post, isGallery = false }: any) => {
       ) : (
         <CardMedia
           component="img"
-          height="300"
           image={post.image}
           alt="Post"
         />
@@ -70,7 +64,10 @@ const Post = ({ post, isGallery = false }: any) => {
         </Box>
 
         <Typography variant="body2">
-          <strong>{post.username}</strong>{' '}
+          <strong>{post.subtitle}</strong>
+        </Typography>
+
+        <Typography variant="body2" sx={{ textAlign: 'justify' }}>
           {expanded ? post.caption : `${post.caption.slice(0, 70)}...`}
           <IconButton onClick={handleExpand} size="small">
             {expanded ? <ExpandLessIcon fontSize="small" /> : <ExpandMoreIcon fontSize="small" />}

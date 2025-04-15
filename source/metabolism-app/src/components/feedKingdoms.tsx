@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Box, Grid, Card, Typography, CardMedia, CardActionArea } from "@mui/material";
 import Archaea from "./kingdoms/archaea";
 import Chromista from "./kingdoms/chromista";
@@ -31,10 +31,6 @@ const FeedKingdoms: React.FC<object> = () => {
         setShowFeed(false);
         setSelected(null);
     };
-
-    useEffect(() => {
-        console.log("Selected kingdom:", selected);
-    }, [selected]);
 
     const renderSelectedComponent = () => {
         switch (selected) {

@@ -5,7 +5,7 @@ import AvatarKingdom from './avatar';
 interface HeaderKingdomProps {
     title: string,
     dirImage: string,
-    username: string,
+    subtitle: string,
     concept: string,
     procedure: string,
     attitude: string,
@@ -15,7 +15,7 @@ const HeaderKingdom:React.FC<HeaderKingdomProps> = (
     {
         title = 'Archaea Profile',
         dirImage = '/archaea/avatar.jpeg',
-        username = 'Halobacteria',
+        subtitle = 'Halobacteria',
         concept = 'Describir cómo los hongos responden a los estímulos del entorno.',
         procedure = 'Comparar cómo se dan los procesos de irritabilidad en los hongos con otros organismos mediante esquemas.',
         attitude = 'Valorar el reino fungi como organismos vitales en los ecosistemas.'
@@ -29,7 +29,7 @@ const HeaderKingdom:React.FC<HeaderKingdomProps> = (
                     <Typography variant="h6" fontWeight="bold">
                         {title}
                     </Typography>
-                    <Chip label={"@" + username} size="small" />
+                    <Chip label={"@" + subtitle} size="small" />
                 </Box>
             </Box>
         
