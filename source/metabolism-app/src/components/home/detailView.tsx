@@ -6,34 +6,40 @@ import TeacherLetter from './itemComponents/teacherLetter';
 import StartGuide from './itemComponents/startGuide';
 import StudentLetter from './itemComponents/studentLetter';
 import History from './itemComponents/history';
+import Biomolecules from './itemComponents/biomolecules';
+import Bioenergetics from './itemComponents/bioenergetics';
+import Anabolism from './itemComponents/anabolism';
+import Homeostasis from './itemComponents/homeostasis';
 
 interface DetailViewProps {
     item: FeedItem;
 }
 
-const DetailView: React.FC<DetailViewProps> = ({item}) => {
-    const renderSection = () => {
-        switch (item.slug) {
-            case "guia-de-inicio":
-                return <StartGuide/>
-            case "carta-al-maestro":
-                return <TeacherLetter/>;
-            case "carta-al-estudiante":
-                return <StudentLetter/>;
-            case "historia":
-                return <History/>
-            case "metabolism":
-                return <Metabolism/>;
-            default:
-                return <Typography>Sección no disponible aún.</Typography>;
-        }
-    };
+const componentMap: Record<string, React.FC> = {
+    "guia-de-inicio": StartGuide,
+    "carta-al-maestro": TeacherLetter,
+    "carta-al-estudiante": StudentLetter,
+    "historia": History,
+    "biomoleculas": Biomolecules,
+    "bioenergetica": Bioenergetics,
+    "metabolism": Metabolism,
+    "anabolismo-y-catabolismo": Anabolism,
+    "homeostasis": Homeostasis,
+  };
 
-    return(
+const DetailView: React.FC<DetailViewProps> = ({ item }) => {
+    const SectionComponent = componentMap[item.slug];
+
+    return (
         <Box>
-            {renderSection()}
+            {SectionComponent ? (
+                <SectionComponent />
+            ) : (
+                <Typography>Sección no disponible aún.</Typography>
+            )}
         </Box>
     );
-}
+};
+  
 
 export default DetailView;

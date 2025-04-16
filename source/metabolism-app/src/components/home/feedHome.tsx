@@ -12,7 +12,6 @@ interface FeedHomeProps {
 const FeedHome: React.FC<FeedHomeProps> = ({ studentName }) => {
   const [likedItems, setLikedItems] = React.useState<{ [key: string]: boolean }>({});
   const [selectedItem, setSelectedItem] = React.useState<FeedItem | null>(null);
-
   const storageKey = `likedItems_${studentName}`;
 
   useEffect(() => {
