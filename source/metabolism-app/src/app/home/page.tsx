@@ -17,7 +17,7 @@ import theme from "@/utils/theme";
 
 const HomePage: React.FC = () => {
   const [studentName, setStudentName] = useState<string | null>(null);
-  const [selectedItem, setSelectedItem] = useState<string>("Inicio"); // Track selected navigation item
+  const [selectedItem, setSelectedItem] = useState<string>("Inicio");
   const router = useRouter();
 
   useEffect(() => {

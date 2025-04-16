@@ -45,7 +45,7 @@ export const feedData: FeedItem[] = [
     },
     {
       text: "Metabolismo",
-      slug: "metabolismo",
+      slug: "metabolism",
       image: "/start/Metabolismo.jpg",
       color: "#607d8b",
       height: 500,

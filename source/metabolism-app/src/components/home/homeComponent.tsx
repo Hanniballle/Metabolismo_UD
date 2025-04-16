@@ -3,17 +3,16 @@ import { Box, Card, CardMedia, CardContent, Typography, IconButton } from "@mui/
 import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
 import FavoriteOutlinedIcon from "@mui/icons-material/FavoriteOutlined";
 import { FeedItem } from './data/interfaces';
-import { useRouter } from "next/navigation";
 
 interface HomeComponentProps {
     item: FeedItem;
     index: number;
     likedItems: Record<string, boolean>;
     toggleLike: (text: string) => void;
+    onSelect: () => void;
 }
 
-const HomeComponent: React.FC<HomeComponentProps> = ({item, index, likedItems, toggleLike}) => {
-    const router = useRouter();
+const HomeComponent: React.FC<HomeComponentProps> = ({item, index, likedItems, toggleLike, onSelect}) => {
     return(
         <Card
           key={index}
@@ -27,6 +26,7 @@ const HomeComponent: React.FC<HomeComponentProps> = ({item, index, likedItems, t
               transform: "scale(1.01)",
             },
           }}
+          onClick={onSelect} 
         >
           <Box sx={{ position: "relative" }}>
             <CardMedia
