@@ -2,6 +2,11 @@ import React, { useState } from "react";
 import { Box, Grid, Card, Typography, CardMedia, CardActionArea } from "@mui/material";
 import Archaea from "./kingdoms/archaea";
 import Chromista from "./kingdoms/chromista";
+import Bacteria from "./kingdoms/bacteria";
+import Plantae from "./kingdoms/plantae";
+import Fungi from "./kingdoms/fungi";
+import Protozoa from "./kingdoms/protozoa";
+import Animalia from "./kingdoms/animalia";
 
 interface Kingdom {
     name: string;
@@ -30,11 +35,21 @@ const FeedKingdoms: React.FC<object> = () => {
     const renderSelectedComponent = () => {
         switch (selected) {
             case "Archaea":
-                return <Archaea/>;
+                return <Archaea onBack={() => setShowFeed(false)} />;
             case "Chromista":
-                return <Chromista/>;
-                
+                return <Chromista onBack={() => setShowFeed(false)} />;
+            case "Bacteria":
+                return <Bacteria onBack={() => setShowFeed(false)} />;
+            case "Plantae":
+                return <Plantae onBack={() => setShowFeed(false)} />;  
+            case "Fungi":
+                return <Fungi onBack={() => setShowFeed(false)} />; 
+            case "Protozoa":
+                return <Protozoa onBack={() => setShowFeed(false)} />; 
+            case "Animalia":
+                return <Animalia onBack={() => setShowFeed(false)} />;
             case "Eukarya":
+            
 
             default:
                 return <div>Please select a domain.</div>;
