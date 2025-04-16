@@ -41,6 +41,10 @@ https://www.canva.com/design/DAGhpvyKAgQ/iodl9oMJkFI34YpunByVCg/edit
 - Publicación 5.3© Oksana https://colombia.inaturalist.org/photos/467727944  
 - Publicación 7 cloroplasto De Kelvinsong - Trabajo propio, CC0, https://commons.wikimedia.org/w/index.php?curid=23030092  
 - Publicación 7.1 cloroplasto 2 De Kristian Peters -- Fabelfroh - Fotografía propia, CC BY-SA 3.0, https://commons.wikimedia.org/w/index.php?curid=1350193
+- Publicacion 9.1 De Ethel Aardvark - Trabajo propio, CC BY 3.0, https://commons.wikimedia.org/w/index.php?curid=4632987  
+- Publicacion 9.2 Dominio público, https://commons.wikimedia.org/w/index.php?curid=135370  
+- Publicacion 9,3 De Ivar Leidus - Trabajo propio, CC BY-SA 3.0, https://commons.wikimedia.org/w/index.php?curid=17704155  
+- Publicacion 9,4 De © Derek Ramsey / derekramsey.com, CC BY-SA 4.0, https://commons.wikimedia.org/w/index.php?curid=1394498
 ##### *Textos*
 - Nabors, M. (2006). I N T R O D U C C I Ó N A L A BOTÁNICA (P. González-Barreda, Trad.). PEARSON EDUCACIÓN, S. A. https://plataformavirtual.iestppadah.edu.pe/biblioteca/files/original/bdd646fa4bd6b7be453e3396610b9f86.pdf  
 - Servicio Geológico Colombiano. (2018). Evolución del planeta Tierra vista a través de las plantas. https://www2.sgc.gov.co/LibroGeologiaColombia/Paginas/evolucion-a-traves-de-las-plantas.aspx  
