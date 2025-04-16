@@ -10,29 +10,28 @@ interface BacteriaProps {
 
 const posts = [
   {
-    title: 'Archaea',
-    dirImage: '/archaea-bacteria/avatar.jpeg',
-    subtitle: '@Halobacteria - Historia de las archaeas en la tierra ',
+    title: 'Bacteria',
+    dirImage: '/bacteria/perfil.jpeg',
+    subtitle: '@Merispomedia /Historia de las bacterias en la tierra',
     image: '/archaea-bacteria/publication1.webp',
-    caption: 'Las arqueas son microorganismos increíblemente antiguos...'
+    caption: 'Las bacterias son unos de los organismos más antiguos y adaptables de la Tierra. Surgieron hace más de 3,500 millones de años, mucho antes que los animales, y han evolucionado para sobrevivir en casi cualquier ambiente: desde aguas termales hirviendo hasta el frío extremo de los polos. Algunas bacterias necesitan oxígeno para vivir (aerobias), mientras que otras mueren en su presencia (anaerobias). También varían en su alimentación: algunas producen su propio alimento mediante la luz (fotosíntesis), y otras consumen materia orgánica. Un ejemplo fascinante de su adaptación es la resistencia a los antibióticos. Cuando los humanos empezaron a usar medicamentos contra infecciones, algunas bacterias mutaron y desarrollaron genes que las protegen, volviéndose más difíciles de eliminar. Además, pueden intercambiar genes entre ellas, lo que acelera su evolución. Hoy, las bacterias siguen siendo esenciales para la vida: algunas ayudan a fijar nitrógeno en el suelo, otras viven en nuestro intestino y nos ayudan a digerir los alimentos. ¡Son verdaderas supervivientes! '
   },
   {
-    title: 'Archaea',
-    dirImage: '/archaea-bacteria/avatar.jpeg',
-    subtitle: '@Halobacteria - Clasificación de archaeas',
+    title: 'Bacteria',
+    dirImage: '/bacteria/perfil.jpeg',
+    subtitle: '@Merispomedia /Clasificación de las bacterias ',
     image: 'pstGallery',
     postGallery: [
-      '/archaea-bacteria/Publ21.jpeg',
-      '/archaea-bacteria/Publ22.jpeg',
-      '/archaea-bacteria/Publ23.jpeg'
+      '/bacteria/P1.jpg',
+      '/bacteria/P2.jpg'
     ],
     isGallery: true,
-    caption: 'Las arqueas son microorganismos antiguos...'
+    caption: 'Las bacterias Gram positivas tienen una pared celular gruesa, como una capa gruesa de peptidoglicano (una especie de malla resistente). Cuando se les aplica el tinte violeta en el laboratorio, lo absorben y se quedan de color morado o azul. En cambio, las bacterias Gram negativas tienen una pared más delgada y una membrana extra por fuera. El tinte violeta no se les queda fácilmente, así que cuando se usa otro tinte (safranina), se ven rosadas o rojas al microscopio. Esta diferencia ayuda a los científicos a identificar bacterias y saber cuál antibiótico usar, ¡porque no todas responden igual a los medicamentos! '
   },
   {
-    title: 'Archaea',
-    dirImage: '/archaea-bacteria/avatar.jpeg',
-    subtitle: 'Halobacteria',
+    title: 'Bacteria',
+    dirImage: '/bacteria/perfil.jpeg',
+    subtitle: 'Merispomedia /Metabolismo en bacterias ',
     image: '/img/post1.jpg',
     caption: 'Las archaeas prosperan en ambientes extremos...'
   },
