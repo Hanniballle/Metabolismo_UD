@@ -9,7 +9,7 @@ import BookOutlinedIcon from "@mui/icons-material/BookOutlined";
 import LogoutOutlinedIcon from "@mui/icons-material/LogoutOutlined";
 import { useRouter } from "next/navigation";
 import UpnLogo from "@/components/upnLogo";
-import FeedHome from "@/components/feedHome";
+import FeedHome from "@/components/home/feedHome";
 import { Tooltip } from "@mui/material";
 import FeedKingdoms from "@/components/feedKingdoms";
 import FeedPlus from "@/components/feedPlus";
