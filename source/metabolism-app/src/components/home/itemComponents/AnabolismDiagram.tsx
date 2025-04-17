@@ -7,7 +7,7 @@ const MetabolismDiagram = () => {
     <Box p={4}>
       <Grid container spacing={4} alignItems="center" justifyContent="center">
         {/* Catabolismo */}
-        <Grid xs={12} md={5}>
+        <Grid  size={{ xs: 12, md: 5 }}>
           <Tooltip title="Proceso que descompone nutrientes (glúcidos, lípidos y prótidos) para liberar energía." arrow>
             <Paper elevation={6} sx={{ p: 3, bgcolor: '#ffebee', borderRadius: 4 }}>
               <Typography variant="h6" gutterBottom fontWeight={600}>Energía contenida en los nutrientes</Typography>
