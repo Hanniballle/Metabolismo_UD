@@ -1,12 +1,5 @@
 import React from "react";
-import {
-  Typography,
-  Box,
-  Paper,
-  Divider,
-  Avatar,
-  useTheme,
-} from "@mui/material";
+import { Typography, Box, Paper, Divider, Avatar, useTheme } from "@mui/material";
 import SchoolIcon from "@mui/icons-material/School";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 
@@ -96,7 +89,7 @@ const Anabolism: React.FC = () => {
               sx={{ fontSize: 40, color: "red", mb: 1 }}
             />
             <Typography variant="subtitle1" color="text.secondary">
-              "La enseñanza que deja huella no es la que se hace de cabeza a cabeza, sino de corazón a corazón."
+            {"\"La enseñanza que deja huella no es la que se hace de cabeza a cabeza, sino de corazón a corazón.\""}
             </Typography>
           </Box>
         </Paper>
