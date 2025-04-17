@@ -78,7 +78,7 @@ const BiomoleculesDiagram = () => {
 
       <Grid container spacing={2}>
         {sections.map((section, index) => (
-          <Grid item xs={12} md={6} key={index}>
+          <Grid size={{ xs: 12, md: 6 }} key={index}>
             <Accordion>
               <AccordionSummary expandIcon={<ExpandMoreIcon />}>
                 <Stack direction="row" alignItems="center" spacing={2}>

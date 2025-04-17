@@ -7,7 +7,7 @@ const MetabolismDiagram = () => {
     <Box p={4}>
       <Grid container spacing={4} alignItems="center" justifyContent="center">
         {/* Catabolismo */}
-        <Grid item xs={12} md={5}>
+        <Grid xs={12} md={5}>
           <Tooltip title="Proceso que descompone nutrientes (glúcidos, lípidos y prótidos) para liberar energía." arrow>
             <Paper elevation={6} sx={{ p: 3, bgcolor: '#ffebee', borderRadius: 4 }}>
               <Typography variant="h6" gutterBottom fontWeight={600}>Energía contenida en los nutrientes</Typography>
@@ -23,7 +23,7 @@ const MetabolismDiagram = () => {
         </Grid>
 
         {/* Moléculas energéticas */}
-        <Grid item xs={12} md={2}>
+        <Grid size={{ xs: 12, md: 2 } }>
           <Tooltip title="Moléculas involucradas en el intercambio energético del metabolismo." arrow>
             <Paper elevation={6} sx={{ p: 3, bgcolor: '#fffde7', borderRadius: 4 }}>
               <Typography variant="subtitle1" align="center" fontWeight={600} gutterBottom>
@@ -41,7 +41,7 @@ const MetabolismDiagram = () => {
         </Grid>
 
         {/* Anabolismo */}
-        <Grid item xs={12} md={5}>
+        <Grid size={{ xs: 12, md: 5 }}>
           <Tooltip title="Proceso que utiliza energía para sintetizar macromoléculas celulares a partir de moléculas precursoras." arrow>
             <Paper elevation={6} sx={{ p: 3, bgcolor: '#e3f2fd', borderRadius: 4 }}>
               <Typography variant="h6" gutterBottom fontWeight={600}>Moléculas precursoras</Typography>

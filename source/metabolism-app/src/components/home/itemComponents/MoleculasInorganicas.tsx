@@ -56,7 +56,7 @@ const MoleculasConTooltip = () => {
 
       <Grid container spacing={3}>
         {moleculas.map((mol, index) => (
-          <Grid item xs={12} sm={6} md={3} key={index}>
+          <Grid size={{ xs: 12, sm: 6, md: 3 }}  key={index}>
             <Tooltip
               title={
                 <Box sx={{ maxWidth: 250, p: 1 }}>
