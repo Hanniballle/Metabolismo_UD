@@ -1,5 +1,5 @@
 "use client";
-import { useState, ChangeEvent } from "react";
+import { useState, ChangeEvent, useEffect } from "react";
 import { Button, TextField, Container, Typography, Box } from "@mui/material";
 import { useRouter } from "next/navigation"; 
 import type { NextPage } from "next";
@@ -15,6 +15,11 @@ const Login: NextPage = () => {
     localStorage.setItem("studentName", studentName);
     router.push("/home");
   };
+
+  useEffect(() => {
+    if (localStorage.getItem("studentName")) router.push("/home");
+  }, [router]);
+  
 
   return (   
     <Container maxWidth="xs">
