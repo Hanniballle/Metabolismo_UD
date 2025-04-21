@@ -192,7 +192,7 @@ const HomePage: React.FC = () => {
           <Typography
             variant="h4"
             sx={{
-              fontFamily: "var(--font-dancing-script)",
+              fontFamily: "var(--font-geist-mono)",
               fontWeight: 600,
               color: "#000",
             }}
