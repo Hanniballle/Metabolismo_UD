@@ -3,7 +3,7 @@ import { Typography, Box, Paper, Divider } from "@mui/material";
 import MetabolismRiddleGame from "./MetabolismRiddleGame";
 import PhotosynthesisDiagram from "./PhotosynthesisDiagram";
 import AnabolismDiagram from "./AnabolismDiagram";
-import { SectionComponentProps } from "./detailView";
+import { SectionComponentProps } from "../detailView";
 import ReturnButton from "../returnButton";
 
 const Anabolism: React.FC<SectionComponentProps> = ({onBack}) => {

@@ -1,6 +1,6 @@
 import React from "react";
 import { Typography, Box, Paper, Divider } from "@mui/material";
-import { SectionComponentProps } from "./detailView";
+import { SectionComponentProps } from "../detailView";
 import ReturnButton from "../returnButton";
 
 const Anabolism: React.FC<SectionComponentProps> = ({onBack}) => {

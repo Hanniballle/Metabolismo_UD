@@ -4,7 +4,7 @@ import MenuGuia from "./MenuGuia";
 import MetabolicPathwayDiagram from "./MetabolicPathwayDiagram";
 import BombilloEnergia from "./BombilloEnergia";
 import Tasks from "@/components/kingdoms/bricks/tasks";
-import { SectionComponentProps } from "./detailView";
+import { SectionComponentProps } from "../detailView";
 import ReturnButton from "../returnButton";
 
 const StartGuide: React.FC<SectionComponentProps> = ({onBack}) => {

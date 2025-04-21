@@ -2,7 +2,7 @@ import React from "react";
 import { Typography, Box, Paper, Divider } from "@mui/material";
 import MetabolicPathwayDiagram from "./MetabolicPathwayDiagram"
 import MetabolismDiagram from "./MetabolismDiagram";
-import { SectionComponentProps } from "./detailView";
+import { SectionComponentProps } from "../detailView";
 import ReturnButton from "../returnButton";
 
 const Metabolism: React.FC<SectionComponentProps> = ({onBack}) => {

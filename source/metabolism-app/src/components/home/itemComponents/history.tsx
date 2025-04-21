@@ -1,5 +1,5 @@
 import React from "react";
-import { SectionComponentProps } from "./detailView";
+import { SectionComponentProps } from "../detailView";
 import ReturnButton from "../returnButton";
 import { Box, Typography } from "@mui/material";
 
