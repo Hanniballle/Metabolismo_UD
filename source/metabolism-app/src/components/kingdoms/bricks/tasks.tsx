@@ -28,7 +28,7 @@ const Tasks = () => {
   return (
     <Grid container spacing={3} justifyContent="center" sx={{ mb: 4 }}>
       {iconLinks.map((item, index) => (
-        <Grid item key={index}>
+        <Grid key={index}>
           <a
             href={item.link}
             target="_blank"
