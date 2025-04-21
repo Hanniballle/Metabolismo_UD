@@ -26,7 +26,7 @@ const FeedGames = () => {
       </Typography>
       <Grid container spacing={3} justifyContent="center">
         {games.map((game) => (
-          <Grid item xs={12} sm={6} md={3} key={game.id}>
+          <Grid size={{ xs: 12, sm: 6, md: 3 }} key={game.id}>
             <Link href={game.url} target="_blank" rel="noopener noreferrer" underline="none">
               <Card sx={{ borderRadius: 4, boxShadow: 3, position: 'relative', overflow: 'hidden' }}>
                 <CardMedia
