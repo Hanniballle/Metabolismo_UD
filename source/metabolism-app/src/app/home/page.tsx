@@ -13,7 +13,6 @@ import {
 import {
   HomeOutlined as HomeIcon,
   YardOutlined as YardIcon,
-  SearchOutlined as SearchIcon,
   VideogameAssetOutlined as GameIcon,
   BookOutlined as BookIcon,
   LogoutOutlined as LogoutIcon,
