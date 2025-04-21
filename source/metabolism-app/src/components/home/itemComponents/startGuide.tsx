@@ -1,5 +1,5 @@
 import React from "react";
-import { Typography, Box, Button } from "@mui/material";
+import { Typography, Box } from "@mui/material";
 import MenuGuia from "./MenuGuia";
 import MetabolicPathwayDiagram from "./MetabolicPathwayDiagram";
 import BombilloEnergia from "./BombilloEnergia";
