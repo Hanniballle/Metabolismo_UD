@@ -1,7 +1,9 @@
 import React from "react";
 import { Typography, Box, Paper, Divider } from "@mui/material";
+import { SectionComponentProps } from "./detailView";
+import ReturnButton from "../returnButton";
 
-const Anabolism: React.FC = () => {
+const Anabolism: React.FC<SectionComponentProps> = ({onBack}) => {
   return (
     <Box
       sx={{
@@ -12,6 +14,7 @@ const Anabolism: React.FC = () => {
       }}
     >
       <Box maxWidth="900px" mx="auto">
+        <ReturnButton onBack={onBack} />
         <Typography variant="h3" fontWeight="bold" gutterBottom>
         Homeostasis
         </Typography>

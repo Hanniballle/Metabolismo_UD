@@ -3,8 +3,10 @@ import { Typography, Box, Paper, Divider } from "@mui/material";
 import MetabolismRiddleGame from "./MetabolismRiddleGame";
 import PhotosynthesisDiagram from "./PhotosynthesisDiagram";
 import AnabolismDiagram from "./AnabolismDiagram";
+import { SectionComponentProps } from "./detailView";
+import ReturnButton from "../returnButton";
 
-const Anabolism: React.FC = () => {
+const Anabolism: React.FC<SectionComponentProps> = ({onBack}) => {
   return (
     <Box
       sx={{
@@ -15,6 +17,7 @@ const Anabolism: React.FC = () => {
       }}
     >
       <Box maxWidth="900px" mx="auto">
+        <ReturnButton onBack={onBack} />
         <Typography variant="h2" fontWeight="bold" gutterBottom>
         Anabolismo y Catabolismo
         </Typography>

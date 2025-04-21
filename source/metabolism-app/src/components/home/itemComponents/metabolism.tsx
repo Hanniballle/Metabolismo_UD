@@ -2,7 +2,10 @@ import React from "react";
 import { Typography, Box, Paper, Divider } from "@mui/material";
 import MetabolicPathwayDiagram from "./MetabolicPathwayDiagram"
 import MetabolismDiagram from "./MetabolismDiagram";
-const Metabolism: React.FC = () => {
+import { SectionComponentProps } from "./detailView";
+import ReturnButton from "../returnButton";
+
+const Metabolism: React.FC<SectionComponentProps> = ({onBack}) => {
   return (
     <Box
       sx={{
@@ -13,6 +16,7 @@ const Metabolism: React.FC = () => {
       }}
     >
       <Box maxWidth="900px" mx="auto">
+        <ReturnButton onBack={onBack} />
         <Typography variant="h3" fontWeight="bold" gutterBottom>
         Metabolismo
         </Typography>

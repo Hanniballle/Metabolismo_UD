@@ -13,9 +13,14 @@ import Homeostasis from './itemComponents/homeostasis';
 
 interface DetailViewProps {
     item: FeedItem;
+    onBack: () => void;
 }
 
-const componentMap: Record<string, React.FC> = {
+export interface SectionComponentProps {
+    onBack: () => void;   
+}
+
+const componentMap: Record<string, React.FC<SectionComponentProps>> = {
     "guia-de-inicio": StartGuide,
     "carta-al-maestro": TeacherLetter,
     "carta-al-estudiante": StudentLetter,
@@ -27,13 +32,14 @@ const componentMap: Record<string, React.FC> = {
     "homeostasis": Homeostasis,
   };
 
-const DetailView: React.FC<DetailViewProps> = ({ item }) => {
+const DetailView: React.FC<DetailViewProps> = ({ item, onBack }) => {
     const SectionComponent = componentMap[item.slug];
+    const handleBack = () => onBack();
 
     return (
         <Box>
             {SectionComponent ? (
-                <SectionComponent />
+                <SectionComponent onBack={handleBack}/>
             ) : (
                 <Typography>Sección no disponible aún.</Typography>
             )}

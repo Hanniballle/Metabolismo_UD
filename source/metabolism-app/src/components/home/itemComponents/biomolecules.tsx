@@ -1,17 +1,11 @@
 import React, { useState } from "react";
-import {
-  Typography,
-  Box,
-  Paper,
-  Divider,
-  Card,
-  CardContent,
-  Button,
-} from "@mui/material";
+import { Typography, Box, Paper, Divider, Card, CardContent, Button } from "@mui/material";
 import MoleculasInorganicas from "./MoleculasInorganicas";
 import BiomoleculesDiagram from "./BiomoleculesDiagram";
+import { SectionComponentProps } from "../detailView";
+import ReturnButton from "../returnButton";
 
-const Biomolecules: React.FC = () => {
+const Biomolecules: React.FC<SectionComponentProps> = ({onBack}) => {
   const questions = [
     {
       question: "¿Cuál de estos elementos NO es parte principal de las biomoléculas?",
@@ -67,6 +61,7 @@ const Biomolecules: React.FC = () => {
       }}
     >
       <Box maxWidth="900px" mx="auto">
+        <ReturnButton onBack={onBack} />
         <Typography variant="h3" fontWeight="bold" gutterBottom>
           Biomoléculas
         </Typography>

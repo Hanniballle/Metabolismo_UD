@@ -2,8 +2,10 @@ import React from "react";
 import { Typography, Box, Paper, Divider, Avatar, useTheme } from "@mui/material";
 import SchoolIcon from "@mui/icons-material/School";
 import FavoriteIcon from "@mui/icons-material/Favorite";
+import { SectionComponentProps } from "../detailView";
+import ReturnButton from "../returnButton";
 
-const Anabolism: React.FC = () => {
+const TeacherLetter: React.FC<SectionComponentProps> = ({onBack}) => {
   const theme = useTheme();
 
   return (
@@ -16,6 +18,7 @@ const Anabolism: React.FC = () => {
       }}
     >
       <Box maxWidth="900px" mx="auto">
+        
         <Paper
           elevation={4}
           sx={{
@@ -26,6 +29,7 @@ const Anabolism: React.FC = () => {
             overflow: "hidden",
           }}
         >
+          <ReturnButton onBack={onBack} />
           <Box display="flex" alignItems="center" mb={3}>
             <Avatar
               sx={{
@@ -98,4 +102,4 @@ const Anabolism: React.FC = () => {
   );
 };
 
-export default Anabolism;
+export default TeacherLetter;

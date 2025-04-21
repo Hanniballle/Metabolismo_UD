@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { Typography, Box, Paper, Divider, Card, CardContent, LinearProgress, Grid } from "@mui/material";
 import ThermodynamicsCard from "./ThermodynamicsCard";
 import BombilloEnergia from "./BombilloEnergia";
+import { SectionComponentProps } from "../detailView";
+import ReturnButton from "../returnButton";
 
 const energyItems = [
   { id: 1, label: "ATP", correctZone: "uso" },
@@ -17,7 +19,7 @@ const dropZones = [
   { id: "viable", label: "Indica que una reacción química es energéticamente viable." },
 ];
 
-const Bioenergetics: React.FC = () => {
+const Bioenergetics: React.FC<SectionComponentProps> = ({onBack}) => {
   const [score, setScore] = useState(0);
   const [completed, setCompleted] = useState<number[]>([]);
   const [feedback, setFeedback] = useState('');
@@ -43,6 +45,7 @@ const Bioenergetics: React.FC = () => {
       }}
     >
       <Box maxWidth="900px" mx="auto">
+        <ReturnButton onBack={onBack} />
         <Typography variant="h3" fontWeight="bold" gutterBottom>
           Bioenergética
         </Typography>

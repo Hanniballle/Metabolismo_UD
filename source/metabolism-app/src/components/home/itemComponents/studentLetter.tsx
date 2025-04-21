@@ -1,18 +1,13 @@
 import React from "react";
-import {
-  Typography,
-  Box,
-  Card,
-  CardContent,
-  Divider,
-  Stack,
-} from "@mui/material";
+import { Typography,Box, Card, CardContent, Divider, Stack} from "@mui/material";
 import SchoolIcon from "@mui/icons-material/School";
 import EmojiPeopleIcon from "@mui/icons-material/EmojiPeople";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import AutoStoriesIcon from "@mui/icons-material/AutoStories";
+import { SectionComponentProps } from "../detailView";
+import ReturnButton from "../returnButton";
 
-const Anabolism: React.FC = () => {
+const StudentLetter: React.FC<SectionComponentProps> = ({onBack}) => {
   return (
     <Box
       sx={{
@@ -25,6 +20,7 @@ const Anabolism: React.FC = () => {
         px: 2,
       }}
     >
+      
       <Card
         sx={{
           maxWidth: 800,
@@ -34,7 +30,11 @@ const Anabolism: React.FC = () => {
           backgroundColor: "#ffffff",
         }}
       >
+        
         <CardContent>
+          <Box>
+            <ReturnButton onBack={onBack} />
+          </Box>
           <Stack direction="row" spacing={1} alignItems="center" mb={1}>
             <SchoolIcon color="primary" fontSize="large" />
             <Typography
@@ -106,4 +106,4 @@ const Anabolism: React.FC = () => {
   );
 };
 
-export default Anabolism;
+export default StudentLetter;

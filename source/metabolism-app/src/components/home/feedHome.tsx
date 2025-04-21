@@ -28,10 +28,14 @@ const FeedHome: React.FC<FeedHomeProps> = ({ studentName }) => {
     localStorage.setItem(storageKey, JSON.stringify(updatedLikes));
   };
 
+  const handleBack = () => {
+    setSelectedItem(null);
+  };  
+
   return (
     <Box>
       {selectedItem ? (
-        <DetailView item={selectedItem} />
+        <DetailView item={selectedItem} onBack={handleBack} />
       ) : (
         <Box
           sx={{
