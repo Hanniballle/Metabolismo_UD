@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
-import { Box, Typography, Card, CardContent, IconButton, CardHeader, CardMedia } from '@mui/material';
+import { Box, Typography, Card, CardContent, IconButton, CardHeader, CardMedia, Avatar } from '@mui/material';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import ExpandLessIcon from '@mui/icons-material/ExpandLess';
-import AvatarKingdom from './avatar';
+import CommentIcon from '@mui/icons-material/Comment';
+import ShareIcon from '@mui/icons-material/Share';
+import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 
 type PostType = {
   title: string;
@@ -22,9 +24,7 @@ type PostProps = {
   postGallery?: string[];
 };
 
-
 const Post: React.FC<PostProps> = ({ post, isGallery = false, postGallery = [] }) => {
-
   const [liked, setLiked] = useState(false);
   const [expanded, setExpanded] = useState(false);
   const [galleryIndex, setGalleryIndex] = useState(0);
@@ -35,10 +35,16 @@ const Post: React.FC<PostProps> = ({ post, isGallery = false, postGallery = [] }
   const prevImage = () => setGalleryIndex((prev) => (prev === 0 ? postGallery.length - 1 : prev - 1));
 
   return (
-    <Card sx={{ mb: 3 }}>
+    <Card sx={{ mb: 3, borderRadius: 4, boxShadow: 3 }}>
       <CardHeader
-        avatar={ <AvatarKingdom name={post.title} dirImage={post.dirImage} />}
+        avatar={<Avatar alt={post.title} src={post.dirImage} />}
+        action={
+          <IconButton>
+            <MoreHorizIcon />
+          </IconButton>
+        }
         title={<Typography fontWeight="bold">{post.title}</Typography>}
+        subheader={<Typography variant="body2" color="text.secondary">{post.subtitle}</Typography>}
       />
 
       {isGallery ? (
@@ -71,14 +77,25 @@ const Post: React.FC<PostProps> = ({ post, isGallery = false, postGallery = [] }
       )}
 
       <CardContent>
-        <Box sx={{ display: 'flex', alignItems: 'center', mb: 1 }}>
-          <IconButton onClick={handleLike} sx={{ color: liked ? 'red' : 'inherit' }}>
-            {liked ? <FavoriteIcon /> : <FavoriteBorderIcon />}
-          </IconButton>
+        <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 1 }}>
+          <Box sx={{ display: 'flex', alignItems: 'center' }}>
+            <IconButton onClick={handleLike} sx={{ color: liked ? 'red' : 'inherit' }}>
+              {liked ? <FavoriteIcon /> : <FavoriteBorderIcon />}
+            </IconButton>
+            <IconButton>
+              <CommentIcon />
+            </IconButton>
+            <IconButton>
+              <ShareIcon />
+            </IconButton>
+          </Box>
+          <Typography variant="body2" color="text.secondary">
+            1 min ago
+          </Typography>
         </Box>
 
-        <Typography variant="body2">
-          <strong>{post.subtitle}</strong>
+        <Typography variant="body2" sx={{ fontWeight: 'bold', mb: 1 }}>
+          {liked ? 'You and others' : 'No likes yet'}
         </Typography>
 
         <Typography variant="body2" sx={{ textAlign: 'justify' }}>

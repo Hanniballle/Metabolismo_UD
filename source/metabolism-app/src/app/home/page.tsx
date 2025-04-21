@@ -1,19 +1,31 @@
 "use client";
 import { useState, useEffect } from "react";
-import { Typography, Box, IconButton, Avatar, List, ListItemButton, ListItemIcon } from "@mui/material";
-import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
-import YardOutlinedIcon from "@mui/icons-material/YardOutlined";
-import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
-import VideogameAssetOutlinedIcon from "@mui/icons-material/VideogameAssetOutlined";
-import BookOutlinedIcon from "@mui/icons-material/BookOutlined";
-import LogoutOutlinedIcon from "@mui/icons-material/LogoutOutlined";
+import {
+  Typography,
+  Box,
+  IconButton,
+  Avatar,
+  List,
+  ListItemButton,
+  ListItemIcon,
+  Tooltip,
+} from "@mui/material";
+import {
+  HomeOutlined as HomeIcon,
+  YardOutlined as YardIcon,
+  SearchOutlined as SearchIcon,
+  VideogameAssetOutlined as GameIcon,
+  BookOutlined as BookIcon,
+  LogoutOutlined as LogoutIcon,
+  ScienceOutlined as AtomIcon,
+} from "@mui/icons-material";
 import { useRouter } from "next/navigation";
 import UpnLogo from "@/components/upnLogo";
 import FeedHome from "@/components/home/feedHome";
-import { Tooltip } from "@mui/material";
 import FeedKingdoms from "@/components/feedKingdoms";
 import FeedPlus from "@/components/feedPlus";
-import theme from "@/utils/theme"; 
+import theme from "@/utils/theme";
+import FeedGames from "@/components/feedGames";
 
 const HomePage: React.FC = () => {
   const [studentName, setStudentName] = useState<string | null>(null);
@@ -35,11 +47,10 @@ const HomePage: React.FC = () => {
   };
 
   const sideBarItems = [
-    { text: "Inicio", icon: <HomeOutlinedIcon /> },
-    { text: "Reinos", icon: <YardOutlinedIcon /> },
-    { text: "Buscar", icon: <SearchOutlinedIcon /> },
-    { text: "Juegos", icon: <VideogameAssetOutlinedIcon /> },
-    { text: "Más", icon: <BookOutlinedIcon /> },
+    { text: "Inicio", icon: <HomeIcon /> },
+    { text: "Reinos", icon: <YardIcon /> },
+    { text: "Juegos", icon: <GameIcon /> },
+    { text: "Más", icon: <BookIcon /> },
   ];
 
   const renderContent = () => {
@@ -48,9 +59,10 @@ const HomePage: React.FC = () => {
         return <FeedHome studentName={studentName!} />;
       case "Reinos":
         return <FeedKingdoms />;
+      case "Juegos":
+        return <FeedGames/>
       case "Más":
         return <FeedPlus />;
-        
       default:
         return (
           <Typography variant="body1" sx={{ mt: 2, fontFamily: "var(--font-geist-mono)" }}>
@@ -60,88 +72,113 @@ const HomePage: React.FC = () => {
     }
   };
 
-  if (!studentName) {
-    return null; 
-  }
+  if (!studentName) return null;
 
   return (
-    <Box sx={{ display: "flex" }}>
+    <Box sx={{ display: "flex", bgcolor: "#f8f9fb", minHeight: "100vh" }}>
+      {/* SIDEBAR */}
       <Box
         sx={{
           position: "fixed",
           top: 0,
           left: 0,
           height: "100vh",
-          width: "65px",
+          width: "70px",
           bgcolor: "white",
-          color: "white",
+          boxShadow: "2px 0 5px rgba(0,0,0,0.05)",
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
           justifyContent: "space-between",
+          py: 2,
+          borderRight: "1px solid #e0e0e0",
         }}
       >
-        <Box sx={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}>
-          <Box sx={{ alignItems: "center", justifyContent: "center", display: "flex" }}>
-            <Typography variant="h4" sx={{ fontFamily: "var(--font-dancing-script)", color: "#2a7fff" }}>
-              M
-            </Typography>
-          </Box>
-
-          <Box sx={{ height: "85vh", width: "100%", display: "flex", justifyContent: "center", alignItems: "center" }}>
-            <List>
-              {sideBarItems.map((item, index) => (
-                <ListItemButton
-                  key={index}
-                  selected={selectedItem === item.text}
+        {/* Ícono superior izquierdo */}
+        <Box sx={{ mb: 2 }}>
+          <AtomIcon sx={{ fontSize: 32, color: "#2a7fff" }} />
+        </Box>
+        <List
+          sx={{
+            flexGrow: 1,
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
+            gap: 0.5,
+          }}
+        >
+          {sideBarItems.map((item, index) => (
+            <Tooltip
+              key={index}
+              title={
+                <Typography
                   sx={{
-                    flexDirection: "column",
-                    display: "flex",
-                    justifyContent: "center",
-                    paddingY: 2,
-                    bgcolor: selectedItem === item.text ? "#f0f0f0" : "transparent", 
+                    fontSize: "0.875rem",
+                    fontWeight: 500,
+                    fontFamily: "var(--font-geist-sans)",
                   }}
-                  onClick={() => setSelectedItem(item.text)} 
                 >
-                  <Tooltip
-                    title={item.text}
-                    placement="right"
-                    enterDelay={100}
-                    leaveDelay={100}
-                    TransitionProps={{ timeout: 300 }}
-                    componentsProps={{
-                      tooltip: {
-                        sx: {
-                          bgcolor: "#2a7fff",
-                          color: "#ffffff",
-                          fontSize: "0.8rem",
-                          borderRadius: 1,
-                          boxShadow: 3,
-                          px: 1.5,
-                          py: 0.5,
-                        },
-                      },
-                    }}
-                  >
-                    <ListItemIcon sx={{ color: "#000000", minWidth: "auto" }}>{item.icon}</ListItemIcon>
-                  </Tooltip>
-                </ListItemButton>
-              ))}
-            </List>
-          </Box>
-
-          <Box sx={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
-            <UpnLogo />
-          </Box>
+                  {item.text}
+                </Typography>
+              }
+              placement="right"
+              enterDelay={150}
+              leaveDelay={100}
+              arrow
+              componentsProps={{
+                tooltip: {
+                  sx: {
+                    bgcolor: "#2a7fff",
+                    color: "#fff",
+                    borderRadius: "8px",
+                    boxShadow: "0px 4px 12px rgba(0, 0, 0, 0.1)",
+                    px: 2,
+                    py: 1,
+                    transition: "all 0.3s ease-in-out",
+                  },
+                },
+                arrow: {
+                  sx: {
+                    color: "#2a7fff",
+                  },
+                },
+              }}
+            >
+              <ListItemButton
+                onClick={() => setSelectedItem(item.text)}
+                selected={selectedItem === item.text}
+                sx={{
+                  flexDirection: "column",
+                  justifyContent: "center",
+                  width: "48px",
+                  height: "48px",
+                  borderRadius: "12px",
+                  transition: "all 0.3s ease",
+                  bgcolor: selectedItem === item.text ? "#e3f2fd" : "transparent",
+                  "&:hover": {
+                    bgcolor: "#e0e0e0",
+                  },
+                }}
+              >
+                <ListItemIcon sx={{ color: "#000", minWidth: 0 }}>{item.icon}</ListItemIcon>
+              </ListItemButton>
+            </Tooltip>
+          ))}
+        </List>
+        <Box sx={{ mb: 0.1 }}>
+          <UpnLogo />
         </Box>
       </Box>
 
-      <Box sx={{ marginLeft: "65px", width: "100%" }}>
+      {/* MAIN CONTENT */}
+      <Box sx={{ marginLeft: "70px", flexGrow: 1 }}>
+        {/* HEADER */}
         <Box
           sx={{
             position: "fixed",
             top: 0,
-            left: 65,
+            left: 70,
             right: 0,
             height: "65px",
             bgcolor: "white",
@@ -149,26 +186,34 @@ const HomePage: React.FC = () => {
             display: "flex",
             justifyContent: "space-between",
             alignItems: "center",
-            paddingLeft: 4,
-            paddingRight: 4,
+            px: 4,
+            boxShadow: "0px 2px 5px rgba(0,0,0,0.05)",
           }}
         >
-          <Typography variant="h4" sx={{ fontFamily: "var(--font-dancing-script)" }}>
-            Hola {studentName} bienvenid@ a Metabolismo
+          <Typography
+            variant="h4"
+            sx={{
+              fontFamily: "var(--font-dancing-script)",
+              fontWeight: 600,
+              color: "#000",
+            }}
+          >
+            Hola {studentName}, bienvenid@ a Metabolismo
           </Typography>
           <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
-            <Avatar sx={{ bgcolor: theme.palette.primary.main }}>
+            <Avatar sx={{ bgcolor: theme.palette.primary.main, fontSize: 16 }}>
               {studentName?.charAt(0).toUpperCase()}
             </Avatar>
-            <IconButton onClick={handleLogout} sx={{ color: theme.palette.primary.main }}>
-              <LogoutOutlinedIcon />
-            </IconButton>
+            <Tooltip title="Cerrar sesión">
+              <IconButton onClick={handleLogout} sx={{ color: theme.palette.primary.main }}>
+                <LogoutIcon />
+              </IconButton>
+            </Tooltip>
           </Box>
         </Box>
 
-        <Box sx={{ marginTop: "65px", padding: 2, backgroundColor: "#f0f0f0" }}>
-          {renderContent()}
-        </Box>
+        {/* CONTENT */}
+        <Box sx={{ mt: "65px", p: 3 }}>{renderContent()}</Box>
       </Box>
     </Box>
   );
