@@ -37,9 +37,6 @@ const Anabolism: React.FC = () => {
 
         <Divider sx={{ my: 4 }} />
         <Paper elevation={0} sx={{ p: 0, mb: 4 }}>
-         <Typography variant="h5" fontWeight="bold">
-         Puedes aprender mas de homeostasis entrando a la siguiente unidad didactica: 
-         </Typography>
         </Paper>
       </Box>
     </Box>

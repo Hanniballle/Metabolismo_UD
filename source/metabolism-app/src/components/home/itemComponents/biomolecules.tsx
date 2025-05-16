@@ -10,6 +10,7 @@ import {
 } from "@mui/material";
 import MoleculasInorganicas from "./MoleculasInorganicas";
 import BiomoleculesDiagram from "./BiomoleculesDiagram";
+import PacmanGame from "./Packman";
 
 const Biomolecules: React.FC = () => {
   const questions = [
@@ -87,6 +88,7 @@ const Biomolecules: React.FC = () => {
           <Typography variant="caption">
             Fuente: Lifeder Edu. (2021). ¿Qué son las BIOMOLÉCULAS? Sus funciones, tipos y ejemplos.
           </Typography>
+          <PacmanGame/>
         </Box>
 
         <Divider sx={{ my: 4 }} />

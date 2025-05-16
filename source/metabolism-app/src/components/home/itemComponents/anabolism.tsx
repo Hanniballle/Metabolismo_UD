@@ -3,6 +3,8 @@ import { Typography, Box, Paper, Divider } from "@mui/material";
 import MetabolismRiddleGame from "./MetabolismRiddleGame";
 import PhotosynthesisDiagram from "./PhotosynthesisDiagram";
 import AnabolismDiagram from "./AnabolismDiagram";
+import TicTacAnabolismo from "./gameanabolism";
+import CatabolismGame from "./gamecatabolism";
 
 const Anabolism: React.FC = () => {
   return (
@@ -94,6 +96,8 @@ const Anabolism: React.FC = () => {
           <Typography variant="body1" paragraph>
           Los ácidos grasos son biomoléculas muy importantes para los seres vivos, se lleva a cabo en el citoplasma y citosol. Son los principales constituyentes de los triglicéridos (aceites y grasas, que actúan como reserva energética) y de los fosfolípidos (que forman el armazón de las membranas celulares). Su biosíntesis es, pues, de crucial importancia para todos los organismos. El principal precursor de los ácidos grasos es el malonil-CoA, una molécula que aporta dos de sus tres átomos de carbono al esqueleto carbonado del ácido graso en crecimiento. El malonil-CoA proviene, a su vez, del acetil-CoA. Todas las reacciones de síntesis de ácidos grasos tienen lugar en el citosol de las células. 
           </Typography>
+          <Divider sx={{ my: 4 }} />
+          <TicTacAnabolismo/>
         </Paper>
 
         <Divider sx={{ my: 4 }} />
@@ -146,6 +150,8 @@ const Anabolism: React.FC = () => {
           <Typography variant="body1" paragraph>
           La beta oxidación es un proceso catabólico en el que los ácidos grasos se descomponen mediante la eliminación sucesiva de pares de átomos de carbono, generando unidades de acetil-CoA, que luego ingresan al ciclo de Krebs para producir energía en forma de ATP. Este proceso consta de cuatro reacciones recurrentes que también producen NADH y FADH2, que participan en la cadena respiratoria. Antes de la oxidación, los ácidos grasos deben activarse con coenzima A y atravesar la membrana mitocondrial interna, que es impermeable a ellos. 
           </Typography>
+          <Divider sx={{ my: 4 }} />
+          <CatabolismGame/>
         </Paper>
         <Divider sx={{ my: 4 }} />
         <Typography variant="h3" fontWeight="bold" gutterBottom>

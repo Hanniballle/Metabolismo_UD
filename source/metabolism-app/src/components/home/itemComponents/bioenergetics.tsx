@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Typography, Box, Paper, Divider, Card, CardContent, LinearProgress, Grid } from "@mui/material";
 import ThermodynamicsCard from "./ThermodynamicsCard";
 import BombilloEnergia from "./BombilloEnergia";
+import SnakeGame from "./snake";
 
 const energyItems = [
   { id: 1, label: "ATP", correctZone: "uso" },
@@ -117,6 +118,7 @@ De esta manera, las células manejan de manera eficiente el flujo de energía, a
             La energía de Gibbs (designada con la letra G) de un sistema es la parte de la energía total del sistema que está disponible para realizar trabajo útil, y está dada por la siguiente relación:
             Δ G = Δ H − T Δ S 
           </Typography>
+          <SnakeGame/>
         </Paper>
 
         <Typography variant="caption" color="textSecondary">

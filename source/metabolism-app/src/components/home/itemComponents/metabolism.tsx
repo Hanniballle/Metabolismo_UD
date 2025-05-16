@@ -2,6 +2,7 @@ import React from "react";
 import { Typography, Box, Paper, Divider } from "@mui/material";
 import MetabolicPathwayDiagram from "./MetabolicPathwayDiagram"
 import MetabolismDiagram from "./MetabolismDiagram";
+import TetrisMetabolism from "./tetris";
 const Metabolism: React.FC = () => {
   return (
     <Box
@@ -41,7 +42,7 @@ const Metabolism: React.FC = () => {
           <Typography variant="body1" paragraph>
           Una propiedad de los seres vivos, sobre todo, los hace parecer casi milagrosamente diferentes de la materia inerte: crean y mantienen el orden en un universo que tiende siempre a un mayor desorden. Para crear este orden, las células de un organismo vivo deben realizar un flujo incesante de reacciones químicas. En algunas de estas reacciones, pequeñas moléculas orgánicas (aminoácidos, azúcares, nucleótidos y lípidos) se descomponen o modifican para proporcionar las muchas otras moléculas pequeñas que la célula necesita. En otras reacciones, se utilizan pequeñas moléculas para construir una gama enormemente diversa de proteínas, ácidos nucleicos y otras macromoléculas que dotan a los sistemas vivos de todas sus propiedades más distintivas. Cada célula puede considerarse una diminuta fábrica química que realiza millones de reacciones por segundo. 
           </Typography>
-
+          <TetrisMetabolism/>
           <Typography variant="h5" fontWeight="bold" gutterBottom>
           El metabolismo celular está organizado por enzimas.
           </Typography>

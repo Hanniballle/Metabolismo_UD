@@ -2,7 +2,6 @@ import React from 'react';
 import { Box, Typography, Divider, Button } from '@mui/material';
 import Post from './bricks/post';
 import HeaderKingdom from './bricks/header';
-import Tasks from './bricks/tasks';
 
 interface ChromistaProps {
   onBack: () => void;
@@ -221,7 +220,6 @@ const Plantae: React.FC<ChromistaProps> = ({ onBack }) => {
         attitude={chromistaData.attitude}
       />
       <Divider sx={{ my: 4 }} />
-      <Tasks />
 
       <Typography
         variant="caption"

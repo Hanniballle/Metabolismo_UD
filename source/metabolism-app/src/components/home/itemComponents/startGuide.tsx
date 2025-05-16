@@ -3,7 +3,6 @@ import { Typography, Box } from "@mui/material";
 import MenuGuia from "./MenuGuia";
 import MetabolicPathwayDiagram from "./MetabolicPathwayDiagram";
 import BombilloEnergia from "./BombilloEnergia";
-import Tasks from "@/components/kingdoms/bricks/tasks";
 
 const Anabolism: React.FC = () => {
   return (
@@ -47,7 +46,7 @@ const Anabolism: React.FC = () => {
         <Typography variant="body1" paragraph>
         En estos encontraras actividades para complentar tu aprendizaje, tareas, el quiz del reino y la actividad de clase.
         </Typography>
-        <Tasks/>
+
       </Box>
     </Box>
   );
