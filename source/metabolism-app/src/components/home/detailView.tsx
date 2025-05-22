@@ -5,7 +5,6 @@ import { Box, Typography} from "@mui/material";
 import TeacherLetter from './itemComponents/teacherLetter';
 import StartGuide from './itemComponents/startGuide';
 import StudentLetter from './itemComponents/studentLetter';
-import History from './itemComponents/history';
 import Biomolecules from './itemComponents/biomolecules';
 import Bioenergetics from './itemComponents/bioenergetics';
 import Anabolism from './itemComponents/anabolism';
@@ -24,7 +23,6 @@ const componentMap: Record<string, React.FC<SectionComponentProps>> = {
     "guia-de-inicio": StartGuide,
     "carta-al-maestro": TeacherLetter,
     "carta-al-estudiante": StudentLetter,
-    "historia": History,
     "biomoleculas": Biomolecules,
     "bioenergetica": Bioenergetics,
     "metabolism": Metabolism,

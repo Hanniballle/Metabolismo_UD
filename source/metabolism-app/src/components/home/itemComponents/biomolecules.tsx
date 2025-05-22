@@ -4,6 +4,7 @@ import MoleculasInorganicas from "./MoleculasInorganicas";
 import BiomoleculesDiagram from "./BiomoleculesDiagram";
 import { SectionComponentProps } from "../detailView";
 import ReturnButton from "../returnButton";
+import PacmanGame from "./Packman";
 
 const Biomolecules: React.FC<SectionComponentProps> = ({onBack}) => {
   const questions = [
@@ -82,6 +83,7 @@ const Biomolecules: React.FC<SectionComponentProps> = ({onBack}) => {
           <Typography variant="caption">
             Fuente: Lifeder Edu. (2021). ¿Qué son las BIOMOLÉCULAS? Sus funciones, tipos y ejemplos.
           </Typography>
+          <PacmanGame/>
         </Box>
 
         <Divider sx={{ my: 4 }} />

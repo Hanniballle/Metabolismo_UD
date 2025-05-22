@@ -23,13 +23,6 @@ export const feedData: FeedItem[] = [
       height: 500,
     },
     {
-      text: "Historia",
-      slug: "historia",
-      image: "/start/Historia.jpg",
-      color: "#ff9800",
-      height: 500,
-    },
-    {
       text: "Biomoléculas",
       slug: "biomoleculas",
       image: "/start/Biomoleculas.jpg",

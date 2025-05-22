@@ -2,7 +2,7 @@ import React from 'react';
 import { Box, Typography, Divider, Button } from '@mui/material';
 import Post from './bricks/post';
 import HeaderKingdom from './bricks/header';
-import Tasks from './bricks/tasks';
+import Link from '@mui/material/Link';
 
 interface ChromistaProps {
   onBack: () => void;
@@ -58,9 +58,9 @@ const Chromista: React.FC<ChromistaProps> = ({ onBack }) => {
     title: 'Chromista',
     dirImage: '/chromista/avatar.jpg',
     subtitle: 'Turbinaria',
-    concept: 'Comprender las características principales del Reino Cromista y sus procesos metabólicos.',
-    procedure: 'Analizar publicaciones tipo Instagram que expliquen visualmente el metabolismo de los organismos chromistas.',
-    attitude: 'Valorar el reino chromista como organismos vitales en los ecosistemas.'
+    concept: 'En este perfil encontraras las características principales del Reino Chromista y sus procesos metabólicos.',
+    procedure: 'Se busca potenciar la comprensión lectora e interpretativa, así como el trabajo en equipo, fomentando la participación activa y la construcción colaborativa de ideas a través de juegos.',
+    attitude: 'En el apartado de juegos encontrarás actividades relacionadas con el Reino Chromista, y al final de este perfil, la actividad final.'
   };
 
   // Array de textos con títulos, subtítulos y contenido específico para cada publicación
@@ -130,7 +130,6 @@ const Chromista: React.FC<ChromistaProps> = ({ onBack }) => {
         attitude={chromistaData.attitude}
       />
       <Divider sx={{ my: 4 }} />
-      <Tasks />
 
       <Typography
         variant="caption"
@@ -157,6 +156,16 @@ const Chromista: React.FC<ChromistaProps> = ({ onBack }) => {
         </Box>
       ))}
        <Divider style={{ margin: '2rem 0' }} />
+       <Typography variant="body1" sx={{ mt: 2 }}>
+         Recuerda entrar al siguiente enlace:{' '}
+          <Link
+            href="https://view.genially.com/680440189190c659980dfeb0/interactive-content-la-carrera-de-los-chromistas"
+            target="_blank"
+            rel="noopener"
+              >
+            ¿Qué aprendiste del Reino Chromista?
+              </Link>
+          </Typography>
             
             {/* Botón para regresar al inicio */}
             <Button 
