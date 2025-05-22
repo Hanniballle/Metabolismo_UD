@@ -3,9 +3,9 @@ import { Typography, Box } from "@mui/material";
 import MenuGuia from "./MenuGuia";
 import MetabolicPathwayDiagram from "./MetabolicPathwayDiagram";
 import BombilloEnergia from "./BombilloEnergia";
-import Tasks from "@/components/kingdoms/bricks/tasks";
 import { SectionComponentProps } from "../detailView";
 import ReturnButton from "../returnButton";
+import SnakeGame from "./snake";
 
 const StartGuide: React.FC<SectionComponentProps> = ({onBack}) => {
   return (
@@ -30,6 +30,9 @@ const StartGuide: React.FC<SectionComponentProps> = ({onBack}) => {
         Iconos del menú 
         </Typography>
         <MenuGuia/>
+        <Typography variant="body1" paragraph>
+        Es recomendable iniciar por Home y Reinos para dar una contextualización antes de pasar a los juegos.
+        </Typography>
         <Typography variant="h4" fontWeight="bold" gutterBottom>
         Esquemas interactivos 
         </Typography>
@@ -45,12 +48,12 @@ const StartGuide: React.FC<SectionComponentProps> = ({onBack}) => {
         </Typography>
         <BombilloEnergia/>
         <Typography variant="h4" fontWeight="bold" gutterBottom>
-        Iconos de tareas
+        Datos historicos 
         </Typography>
         <Typography variant="body1" paragraph>
-        En estos encontraras actividades para complentar tu aprendizaje, tareas, el quiz del reino y la actividad de clase.
+        Los datos historicos estarán distribuidios en el Home en forma de minijuegos, los puedes encontrar mientras lees.
         </Typography>
-        <Tasks/>
+        <SnakeGame/>
       </Box>
     </Box>
   );

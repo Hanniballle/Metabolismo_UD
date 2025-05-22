@@ -1,9 +1,11 @@
 import React from "react";
 import { Box, List, ListItem, ListItemIcon, ListItemText, Paper } from "@mui/material";
-import HomeIcon from "@mui/icons-material/Home";
-import PublicIcon from "@mui/icons-material/Public";
-import SportsEsportsIcon from "@mui/icons-material/SportsEsports";
-import MenuBookIcon from "@mui/icons-material/MenuBook";
+import {
+  HomeOutlined as HomeIcon,
+  YardOutlined as YardIcon,
+  VideogameAssetOutlined as GameIcon,
+  BookOutlined as BookIcon,
+} from "@mui/icons-material";
 
 const MenuGuia = () => {
   return (
@@ -16,14 +18,14 @@ const MenuGuia = () => {
               <HomeIcon />
             </ListItemIcon>
             <ListItemText
-              primary="Este es Home, aquí encontrarás todo lo necesario para que entiendas el metabolismo."
+              primary="Este es inicio, aquí encontrarás todo lo necesario para que entiendas el metabolismo."
             />
           </ListItem>
         </Paper>
 
         <ListItem>
           <ListItemIcon>
-            <PublicIcon />
+            <YardIcon />
           </ListItemIcon>
           <ListItemText
             primary="Este es el ícono de reinos, aquí encontrarás todo lo relacionado con metabolismo y los 7 reinos."
@@ -32,7 +34,7 @@ const MenuGuia = () => {
 
         <ListItem>
           <ListItemIcon>
-            <SportsEsportsIcon />
+            <GameIcon />
           </ListItemIcon>
           <ListItemText
             primary="Este es el ícono de juegos, aquí encontrarás todas las actividades de esta unidad didáctica en un mismo lugar, también estarán distribuidas por toda la UD."
@@ -41,7 +43,7 @@ const MenuGuia = () => {
 
         <ListItem>
           <ListItemIcon>
-            <MenuBookIcon />
+            <BookIcon />
           </ListItemIcon>
           <ListItemText
             primary="En este ícono encontrarás quiénes somos, la bibliografía y la webgrafía que utilizamos para la realización de este proyecto."

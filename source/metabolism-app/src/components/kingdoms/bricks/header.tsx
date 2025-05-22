@@ -36,14 +36,16 @@ const HeaderKingdom: React.FC<HeaderKingdomProps> = ({
 
                 <Box>
                     <Typography variant="body1" gutterBottom>
-                        <strong>Conceptual:</strong> {concept}
+                        <strong>💥</strong> {concept}
                     </Typography>
                     <Typography variant="body1" gutterBottom>
-                        <strong>Procedimental:</strong> {procedure}
+                        <strong>🎯</strong> {procedure}
                     </Typography>
                     <Typography variant="body1">
-                        <strong>Actitudinal:</strong> {attitude}
+                        <strong>🎮</strong> {attitude}
                     </Typography>
+                    
+
                 </Box>
             </CardContent>
         </Card>
