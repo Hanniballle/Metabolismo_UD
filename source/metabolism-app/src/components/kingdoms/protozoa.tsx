@@ -155,7 +155,7 @@ const Protozoa: React.FC<ChromistaProps> = ({ onBack }) => {
          <Typography variant="body1" sx={{ mt: 2 }}>
          Recuerda entrar al siguiente enlace:{' '}
           <Link
-            href="https://app.genially.com/editor/682f9bb53d70d7535c034a51"
+            href="https://view.genially.com/682f9bb53d70d7535c034a51/interactive-content-protozoo"
             target="_blank"
             rel="noopener"
               >

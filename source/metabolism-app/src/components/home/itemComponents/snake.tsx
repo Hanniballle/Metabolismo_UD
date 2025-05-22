@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { Box, Button, Typography, Card, CardContent } from '@mui/material';
 
 const gridSize = 10;
@@ -9,7 +9,6 @@ const getRandomApple = () => ({
   y: Math.floor(Math.random() * gridSize),
 });
 
-// Lista de datos curiosos sobre el metabolismo
 const metabolismFacts = [
   "💡 Hipócrates y Galeno creían que la salud dependía del equilibrio de cuatro humores: sangre, flema, bilis amarilla y negra.",
   "📜 En el siglo XIII, Ibn al-Nafis propuso que el cuerpo se renovaba constantemente, anticipando ideas modernas del metabolismo.",
@@ -31,9 +30,9 @@ const SnakeGame = () => {
   const [hasWon, setHasWon] = useState(false);
   const [applesEaten, setApplesEaten] = useState(0);
   const [randomFact, setRandomFact] = useState('');
-  const intervalRef = useRef<number | null>(null);
+  const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
-  const moveSnake = () => {
+  const moveSnake = useCallback(() => {
     setSnake(prev => {
       const head = prev[0];
       const newHead = { x: (head.x + direction.x + gridSize) % gridSize, y: (head.y + direction.y + gridSize) % gridSize };
@@ -71,9 +70,9 @@ const SnakeGame = () => {
         return newSnake;
       }
     });
-  };
+  }, [direction, apple]);
 
-  const handleKeyDown = (e: KeyboardEvent) => {
+  const handleKeyDown = useCallback((e: KeyboardEvent) => {
     switch (e.key) {
       case 'ArrowUp':
         if (direction.y === 0) setDirection({ x: 0, y: -1 });
@@ -91,7 +90,7 @@ const SnakeGame = () => {
         break;
     }
     e.preventDefault();
-  };
+  }, [direction]);
 
   const startGame = () => {
     setSnake(initialSnake);
@@ -110,10 +109,10 @@ const SnakeGame = () => {
     return () => {
       if (intervalRef.current !== null) {
         clearInterval(intervalRef.current);
-      };
+      }
       window.removeEventListener('keydown', handleKeyDown);
     };
-  }, [isPlaying, direction]);
+  }, [isPlaying, moveSnake, handleKeyDown]);
 
   return (
     <Box display="flex" justifyContent="center" mt={4}>

@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState, useRef, useCallback } from "react";
 import { Box, Button, Typography, Grid, Paper, Stack } from "@mui/material";
 
 const ROWS = 12;
@@ -36,7 +36,7 @@ const SHAPES = {
 
 type ShapeKey = keyof typeof SHAPES;
 
-const TetrisMetabolism = () => { type Piece = {
+type Piece = {
   shape: number[][];
   color: string;
   x: number;
@@ -46,18 +46,19 @@ const TetrisMetabolism = () => { type Piece = {
 const getRandomPiece = (): Piece => {
   const keys = Object.keys(SHAPES) as ShapeKey[];
   const randomKey = keys[Math.floor(Math.random() * keys.length)];
-  const shape = SHAPES[randomKey].map((row) => [...row]); // <- aquí se vuelve mutable
+  const shape = SHAPES[randomKey].map((row) => [...row]);
   const color = COLORS[Math.floor(Math.random() * COLORS.length)];
   return { shape, color, x: 1, y: 0 };
 };
 
+const TetrisMetabolism = () => {
   const [grid, setGrid] = useState<(string | null)[][]>([]);
   const [currentPiece, setCurrentPiece] = useState<Piece | null>(null);
   const [playing, setPlaying] = useState(false);
   const [score, setScore] = useState(0);
   const [linesCleared, setLinesCleared] = useState(0);
   const [gameOver, setGameOver] = useState(false);
-  const intervalRef = useRef<number | null>(null);
+  const intervalRef = useRef<number | null>(null); // ✅ Fix tipo
 
   const initGrid = () => Array.from({ length: ROWS }, () => Array(COLS).fill(null));
 
@@ -87,32 +88,31 @@ const getRandomPiece = (): Piece => {
   };
 
   const collide = (grid: (string | null)[][], piece: Piece): boolean => {
-  return piece.shape.some((row, y) =>
-    row.some((value, x) => {
-      if (!value) return false;
-      const gx = piece.x + x;
-      const gy = piece.y + y;
-      return (
-        gx < 0 ||
-        gx >= COLS ||
-        gy >= ROWS ||
-        (gy >= 0 && grid[gy]?.[gx])
-      );
-    })
-  );
-};
+    return piece.shape.some((row, y) =>
+      row.some((value, x) => {
+        if (!value) return false;
+        const gx = piece.x + x;
+        const gy = piece.y + y;
+        return (
+          gx < 0 ||
+          gx >= COLS ||
+          gy >= ROWS ||
+          (gy >= 0 && grid[gy]?.[gx])
+        );
+      })
+    );
+  };
 
+  const clearLines = (grid: (string | null)[][]): { newGrid: (string | null)[][]; lines: number } => {
+    const newGrid = grid.filter((row) => row.some((cell) => !cell));
+    const lines = ROWS - newGrid.length;
+    while (newGrid.length < ROWS) {
+      newGrid.unshift(Array(COLS).fill(null));
+    }
+    return { newGrid, lines };
+  };
 
-const clearLines = (grid: (string | null)[][]): { newGrid: (string | null)[][]; lines: number } => {
-  const newGrid = grid.filter((row) => row.some((cell) => !cell));
-  const lines = ROWS - newGrid.length;
-  while (newGrid.length < ROWS) {
-    newGrid.unshift(Array(COLS).fill(null));
-  }
-  return { newGrid, lines };
-};
-
-  const movePiece = (dx: number, dy: number): void => {
+  const movePiece = useCallback((dx: number, dy: number): void => {
     if (!currentPiece) return;
     const moved = { ...currentPiece, x: currentPiece.x + dx, y: currentPiece.y + dy };
     if (!collide(grid, moved)) {
@@ -122,7 +122,7 @@ const clearLines = (grid: (string | null)[][]): { newGrid: (string | null)[][]; 
       const { newGrid, lines } = clearLines(merged);
       setGrid(newGrid);
       setScore((s) => s + lines * 100);
-  
+
       setLinesCleared((prev) => {
         const totalLines = prev + lines;
         if (totalLines >= LINE_GOAL) {
@@ -134,20 +134,21 @@ const clearLines = (grid: (string | null)[][]): { newGrid: (string | null)[][]; 
         }
         return totalLines;
       });
-  
+
       const next = getRandomPiece();
       if (collide(newGrid, next)) {
         setGameOver(true);
         setPlaying(false);
         if (intervalRef.current !== null) {
           clearInterval(intervalRef.current);
-        };
+        }
       } else {
         setCurrentPiece(next);
       }
     }
-  };
-  const rotate = () => {
+  }, [currentPiece, grid]);
+
+  const rotate = useCallback(() => {
     if (!currentPiece) return;
     const rotated = {
       ...currentPiece,
@@ -158,13 +159,21 @@ const clearLines = (grid: (string | null)[][]): { newGrid: (string | null)[][]; 
     if (!collide(grid, rotated)) {
       setCurrentPiece(rotated);
     }
-  };
+  }, [currentPiece, grid]);
 
+  // Movimiento automático
+  useEffect(() => {
+    if (playing) {
+      intervalRef.current = window.setInterval(() => movePiece(0, 1), 600);
+      return () => clearInterval(intervalRef.current!);
+    }
+  }, [playing, movePiece]);
+
+  // Controles del teclado
   useEffect(() => {
     const handleKey = (e: KeyboardEvent) => {
       if (!playing) return;
 
-      // Evitar scroll al usar flechas
       if (
         ["ArrowLeft", "ArrowRight", "ArrowDown", "ArrowUp"].includes(e.key)
       ) {
@@ -184,21 +193,12 @@ const clearLines = (grid: (string | null)[][]): { newGrid: (string | null)[][]; 
         case "ArrowUp":
           rotate();
           break;
-        default:
-          break;
       }
     };
 
     window.addEventListener("keydown", handleKey);
     return () => window.removeEventListener("keydown", handleKey);
-  }, [playing, currentPiece, grid]);
-
-  useEffect(() => {
-    if (playing) {
-      intervalRef.current = setInterval(() => movePiece(0, 1), 600);
-      return () => clearInterval(intervalRef.current!);
-    }
-  }, [playing, currentPiece]);
+  }, [playing, movePiece, rotate]);
 
   return (
     <Box textAlign="center" p={2} tabIndex={0}>

@@ -53,7 +53,7 @@ const FeedGames = () => {
       </Typography>
       <Grid container spacing={3}>
         {games.map((game) => (
-          <Grid size={{ xs: 12, sm: 6, md: 4 }}> key={game.id}
+          <Grid size={{ xs: 12, sm: 6, md: 4 }} key={game.id}>
             <Card
               sx={{
                 borderRadius: 3,
